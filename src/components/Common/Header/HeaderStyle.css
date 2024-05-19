@@ -1,0 +1,31 @@
+.header {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(35, 21, 92);
+}
+.header-list {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+.list-element {
+    padding: 5px 10px;
+}
+.element-link {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    border-bottom: 2px solid transparent;
+}
+.element-link:hover {
+    border-bottom: 2px solid white;
+}
+.element-link:visited {
+    color: white;
+}
