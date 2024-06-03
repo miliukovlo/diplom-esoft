@@ -12,3 +12,14 @@
 .error-true {
     color: darkred !important;
 }
+.registration-text {
+    font-size: 2vh;
+    color: black;
+    transition-duration: 0.4s;
+    border-bottom: 2px solid transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.registration-text:hover {
+    border-bottom: 2px solid rgb(35, 21, 92);
+}

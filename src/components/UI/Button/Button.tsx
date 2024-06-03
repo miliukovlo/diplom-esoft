@@ -7,7 +7,7 @@ interface ButtonProps {
     size: string
 }
 
-const Button = ({text, onClick, size} : ButtonProps) => {
+const Button : React.FC<ButtonProps>= ({text, onClick, size} : ButtonProps) => {
     return (
         <button
             onClick={onClick} 

@@ -1,16 +1,10 @@
 import { ChangeEvent, useState } from "react"
-import { StrOrNumber } from "../Types/StrOrNumber"
-import { isValueStr } from "../tests/isValueStr"
 
-export const useInput = (currentValue: StrOrNumber)  => {
-    const [value, setValue] = useState<StrOrNumber>(currentValue)
+export const useInput = <T>(currentValue: T)  => {
+    const [value, setValue] = useState<T>(currentValue)
 
     const onChange = (e : ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value as StrOrNumber)
+        setValue(e.target.value as T)
     }
-    if (isValueStr(value)) {
         return {value, onChange}
-    } else {
-        return {value, onChange}
-    }
 }
