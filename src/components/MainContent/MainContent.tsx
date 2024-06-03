@@ -3,7 +3,7 @@ import './MainContentStyle.css'
 
 const MainContent = () => {
     return (
-        <main>
+        <main className='main'>
             
         </main>
     );
