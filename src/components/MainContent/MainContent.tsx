@@ -5,7 +5,7 @@ import CompanyInterface from '../../Interfaces/CompanyInterface';
 import { RootState } from '../../data/reducers/store';
 import CompanyBlock from '../Common/CompanyBlock/CompanyBlock';
 
-const MainContent = () => {
+const MainContent: React.FC = () => {
     const companies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
 
     return (
