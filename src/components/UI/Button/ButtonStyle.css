@@ -5,7 +5,7 @@
     cursor: pointer;
 }
 .size-button:hover {
-    background-color: rgb(35, 21, 92);
+    background-color: rgb(29, 27, 27);
     color: white;
 }
 
@@ -14,7 +14,7 @@
     height: 15%;
     min-height: 50px;
     text-indent: 10px;
-    border: 1px solid rgb(35, 21, 92);
+    border: 1px solid rgb(29, 27, 27);
     border-radius: 16px;
     color: rgb(35,21,92);
     outline: 0;
@@ -25,7 +25,7 @@
     height: 20%;
     min-height: 50px;
     text-indent: 10px;
-    border: 1px solid rgb(35, 21, 92);
+    border: 1px solid rgb(29, 27, 27);
     border-radius: 20px;
     color: rgb(35,21,92);
     outline: 0;
@@ -35,7 +35,7 @@
     height: 20%;
     min-height: 50px;
     text-indent: 10px;
-    border: 1px solid rgb(35, 21, 92);
+    border: 1px solid rgb(29, 27, 27);
     border-radius: 20px;
     outline: 0;
 }
