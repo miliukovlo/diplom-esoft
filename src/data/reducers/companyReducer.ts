@@ -51,6 +51,30 @@ const defaultCompanies = {
             rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
+        {
+            name: 'Компания №7',
+            id: 'someCompany7',
+            specialization: 'apartment',
+            logo: 'https://img.razrisyika.ru/kart/94/372802-logo-6.jpg',
+            rating: 0,
+            slogan: 'Мы строим раз и на века!'
+        },
+        {
+            name: 'Компания №8',
+            id: 'someCompany8',
+            specialization: 'houses',
+            logo: 'https://i.pinimg.com/originals/cc/7a/d3/cc7ad3d3ba4e80853304bee2dc3015da.png',
+            rating: 0,
+            slogan: 'Мы строим раз и на века!'
+        },
+        {
+            name: 'Компания №9',
+            id: 'someCompany9',
+            specialization: 'apartment',
+            logo: 'https://free-png.ru/wp-content/uploads/2020/10/Nike-logo-506c4872.png',
+            rating: 0,
+            slogan: 'Мы строим раз и на века!'
+        },
     ] as CompanyInterface[]
 }
 
@@ -69,4 +93,4 @@ export const companiesReducer = (state = defaultCompanies, action: CompanyAction
 }
 
 export const addCompany = (payload: CompanyInterface) => ({type: ADD_COMPANY, payload})
-export const removeCompany = (payload: number) => ({type: REMOVE_COMPANY, payload})
+export const removeCompany = (payload: string) => ({type: REMOVE_COMPANY, payload})

@@ -1,0 +1,33 @@
+.company-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.company-content__logo-block, .company-content__information-block {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.company-content__information-block {
+    flex-direction: column;
+}
+.company-content__logo {
+    height: 50%;
+    width: 50%;
+}
+.information-block__title {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-name {
+    font-size: 2vh;
+}
+.common-text {
+    font-size: 1.5vh;
+}
