@@ -7,6 +7,8 @@ import { useTextarea } from '../../Hooks/useTextarea';
 import Button from '../UI/Button/Button';
 import { useDispatch } from 'react-redux';
 import { addComment } from '../../data/reducers/commentsReducer';
+import CommentsBlock from './CommentBlock/CommentsBlock';
+import { GetIdForComment } from '../../Hooks/GetIdForComment';
 
 interface CurrentCompanyInterface extends CompanyInterface {
     
@@ -24,14 +26,15 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     const dispatch = useDispatch()
 
     const commentValue = useTextarea('')
+    const commentId = GetIdForComment()
     const handleAddComment = () => {
-
-        dispatch(addComment({
-            data: commentValue.value,
-            user: 'Пользователь',
-            companyId: id
-        }))
-        commentValue.setValue('')
+            dispatch(addComment({
+                data: commentValue.value,
+                user: 'Пользователь',
+                companyId: id,
+                id: commentId
+            }))
+            commentValue.setValue('')
     }
 
     return (
@@ -53,6 +56,9 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 text='Добавить комментарий'
                 size='m'
                 onClick={handleAddComment}
+            />
+            <CommentsBlock
+                CompanyId={id}
             />
         </div>
     );
