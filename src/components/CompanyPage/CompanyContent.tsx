@@ -2,6 +2,8 @@ import React from 'react';
 import CompanyInterface from '../../Interfaces/CompanyInterface';
 import './CompanyContentStyle.css'
 import CompanyHeader from './CompanyHeader/CompanyHeader';
+import Textarea from '../UI/Textarea/Textarea';
+import { useInput } from '../../Hooks/useInput';
 
 interface CurrentCompanyInterface extends CompanyInterface {
     
@@ -15,6 +17,9 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     specialization,
     id
 }: CurrentCompanyInterface) => {
+
+    const commentValue = useInput('')
+
     return (
         <div className="company-content">
             <CompanyHeader
@@ -23,6 +28,12 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 slogan={slogan}
                 rating={rating}
                 specialization={specialization}
+            />
+            <Textarea
+                placeholder='Напишите комментарий'
+                size='m'
+                value={commentValue.value}
+                onChange={commentValue.onChange}
             />
         </div>
     );
