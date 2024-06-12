@@ -3,7 +3,7 @@ import CompanyInterface from '../../Interfaces/CompanyInterface';
 import './CompanyContentStyle.css'
 import CompanyHeader from './CompanyHeader/CompanyHeader';
 import Textarea from '../UI/Textarea/Textarea';
-import { useInput } from '../../Hooks/useInput';
+import { useTextarea } from '../../Hooks/useTextarea';
 
 interface CurrentCompanyInterface extends CompanyInterface {
     
@@ -18,7 +18,7 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     id
 }: CurrentCompanyInterface) => {
 
-    const commentValue = useInput('')
+    const commentValue = useTextarea('')
 
     return (
         <div className="company-content">

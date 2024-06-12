@@ -1,4 +1,10 @@
-.company-content__logo-block, .company-content__information-block {
+
+.company-header {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.company-header__logo-block, .company-header__information-block {
     height: 50%;
     width: 50%;
     display: flex;
@@ -6,10 +12,10 @@
     align-items: center;
     margin-top: 10px;
 }
-.company-content__information-block {
+.company-header__information-block {
     flex-direction: column;
 }
-.company-content__logo {
+.company-header__logo {
     height: 50%;
     width: 50%;
 }

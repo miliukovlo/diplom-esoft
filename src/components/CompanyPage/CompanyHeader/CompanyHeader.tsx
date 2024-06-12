@@ -17,11 +17,11 @@ const CompanyHeader: React.FC<CompanyHeaderProps> = ({
     specialization,
 }: CompanyHeaderProps) => {
     return (
-        <>
-            <div className="company-content__logo-block">
-                <img src={logo} alt="Логотип компании" className='company-content__logo' />
+        <div className='company-header'>
+            <div className="company-header__logo-block">
+                <img src={logo} alt="Логотип компании" className='company-header__logo' />
             </div>
-            <div className="company-content__information-block">
+            <div className="company-header__information-block">
                 <div className="information-block__title">
                     <h2 className='title-name'>{name}</h2>
                     <p className='common-text'>{slogan}</p>
@@ -33,7 +33,7 @@ const CompanyHeader: React.FC<CompanyHeaderProps> = ({
             <p className="common-text">Рейтинг: {rating}</p>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
