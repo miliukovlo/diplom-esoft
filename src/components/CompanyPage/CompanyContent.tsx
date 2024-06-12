@@ -4,6 +4,9 @@ import './CompanyContentStyle.css'
 import CompanyHeader from './CompanyHeader/CompanyHeader';
 import Textarea from '../UI/Textarea/Textarea';
 import { useTextarea } from '../../Hooks/useTextarea';
+import Button from '../UI/Button/Button';
+import { useDispatch } from 'react-redux';
+import { addComment } from '../../data/reducers/commentsReducer';
 
 interface CurrentCompanyInterface extends CompanyInterface {
     
@@ -18,7 +21,18 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     id
 }: CurrentCompanyInterface) => {
 
+    const dispatch = useDispatch()
+
     const commentValue = useTextarea('')
+    const handleAddComment = () => {
+
+        dispatch(addComment({
+            data: commentValue.value,
+            user: 'Пользователь',
+            companyId: id
+        }))
+        commentValue.setValue('')
+    }
 
     return (
         <div className="company-content">
@@ -34,6 +48,11 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 size='m'
                 value={commentValue.value}
                 onChange={commentValue.onChange}
+            />
+            <Button
+                text='Добавить комментарий'
+                size='m'
+                onClick={handleAddComment}
             />
         </div>
     );

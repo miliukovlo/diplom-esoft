@@ -8,7 +8,7 @@ interface TextareaProps {
     placeholder: string
 }
 
-const Textarea: React.FC<TextareaProps> = ({
+const Textarea: React.FC<TextareaProps> = React.memo(({
     value,
     onChange,
     size,
@@ -25,6 +25,6 @@ const Textarea: React.FC<TextareaProps> = ({
             placeholder={placeholder}
         />
     );
-}
+})
 
 export default Textarea;

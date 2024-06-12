@@ -6,5 +6,5 @@ export const useTextarea = <T>(currentValue: T)  => {
     const onChange = (e : ChangeEvent<HTMLTextAreaElement>) => {
         setValue(e.target.value as T)
     }
-        return {value, onChange}
+        return {value, onChange, setValue}
 }
