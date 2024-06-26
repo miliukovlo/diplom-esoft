@@ -3,6 +3,7 @@
     background-color: transparent;
     transition-duration: 0.4s;
     cursor: pointer;
+    color: rgb(221, 221, 221);
 }
 .size-button:hover {
     background-color: rgb(29, 27, 27);
@@ -16,7 +17,7 @@
     text-indent: 10px;
     border: 1px solid rgb(29, 27, 27);
     border-radius: 16px;
-    color: rgb(35,21,92);
+    color: rgb(221, 221, 221);
     outline: 0;
 }
 
@@ -27,7 +28,7 @@
     text-indent: 10px;
     border: 1px solid rgb(29, 27, 27);
     border-radius: 20px;
-    color: rgb(35,21,92);
+    color: rgb(221, 221, 221);
     outline: 0;
 }
 .size-button-default {
@@ -36,6 +37,7 @@
     min-height: 50px;
     text-indent: 10px;
     border: 1px solid rgb(29, 27, 27);
+    color: rgb(221, 221, 221);
     border-radius: 20px;
     outline: 0;
 }

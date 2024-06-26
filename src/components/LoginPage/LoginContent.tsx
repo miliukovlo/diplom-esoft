@@ -15,7 +15,7 @@ const LoginContent : React.FC = () => {
 
     return (
         <main className='main main-login__content'>
-            <h2>{registrationOrLogin ? 'Войти' : 'Регистрация'}</h2>
+            <h2 className='main-login__title'>{registrationOrLogin ? 'Войти' : 'Регистрация'}</h2>
             <Input
                 value={userName.value}
                 placeholder='Введите имя пользователя'

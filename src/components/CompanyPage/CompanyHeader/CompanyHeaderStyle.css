@@ -3,17 +3,22 @@
     height: 100%;
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .company-header__logo-block, .company-header__information-block {
     height: 50%;
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .company-header__information-block {
     flex-direction: column;
+    background-color: rgb(19,16,16);
+    color: rgb(221,221,221);
+    border-radius: 20px;
 }
 .company-header__logo {
     height: 50%;
@@ -28,7 +33,14 @@
 }
 .title-name {
     font-size: 2vh;
+    color: rgb(221,221,221)
 }
 .common-text {
     font-size: 1.5vh;
+    color: rgb(221,221,221);
+    text-align: center;
+}
+.comments-list__no-comments-msg {
+    font-size: 1.25rem;
+    color: rgb(221,221,221)
 }

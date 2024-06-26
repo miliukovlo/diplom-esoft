@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: center;
 }
+.main-login__title {
+    font-size: 1.75rem;
+    color: rgb(221, 221, 221);
+}
 .error {
     font-size: 2vh;
     color:  transparent;
@@ -14,12 +18,12 @@
 }
 .registration-text {
     font-size: 2vh;
-    color: black;
+    color: rgb(221, 221, 221);
     transition-duration: 0.4s;
     border-bottom: 2px solid transparent;
     padding: 5px 10px;
     cursor: pointer;
 }
 .registration-text:hover {
-    border-bottom: 2px solid rgb(35, 21, 92);
+    border-bottom: 2px solid rgb(221, 221, 221);
 }

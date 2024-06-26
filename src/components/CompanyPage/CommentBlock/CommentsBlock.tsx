@@ -29,7 +29,7 @@ const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId}: Com
                     )
                 })
                 :
-                <h1>Комментариев нет!</h1>
+                <h1 className='comments-list__no-comments-msg'>Комментариев нет!</h1>
             }
         </div>
     );

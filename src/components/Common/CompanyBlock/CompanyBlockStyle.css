@@ -10,9 +10,12 @@
     border: 2px solid transparent;
     margin:10px 30px;
     padding: 10px;
+    background-color: rgb(19, 16, 16);
+    color: rgb(221, 221, 221);
+    border-radius: 8px;
 }
 .company-block:hover {
-    border: 2px solid rgb(29, 27, 27);
+    border: 2px solid rgb(221, 221, 221);
 }
 .company-logo {
     width: 13vh;
