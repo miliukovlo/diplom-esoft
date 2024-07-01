@@ -1,14 +1,15 @@
 import React from 'react';
 import './ProjectStyle.css'
+import { ProjectInterface } from '../../../../Interfaces/ProjectInterface';
 
-interface ProjectProps {
-    title: string,
-    poster: string,
-    type: string,
-    
-}
-
-const Project = () => {
+const Project: React.FC<ProjectInterface> = ({
+    title,
+    poster,
+    id,
+    type,
+    description,
+    rating
+}: ProjectInterface) => {
     return (
         <div className='project-block'>
             
