@@ -7,7 +7,7 @@ interface ButtonProps {
     size: 'm' | 'l'
 }
 
-const Button : React.FC<ButtonProps>= ({text, onClick, size} : ButtonProps) => {
+const Button : React.FC<ButtonProps>= React.memo(({text, onClick, size} : ButtonProps) => {
     return (
         <button
             onClick={onClick} 
@@ -16,6 +16,6 @@ const Button : React.FC<ButtonProps>= ({text, onClick, size} : ButtonProps) => {
             {text}
         </button>
     );
-}
+})
 
 export default Button;

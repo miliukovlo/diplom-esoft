@@ -9,7 +9,7 @@ interface CompanyHeaderProps {
     rating: number
 }
 
-const CompanyHeader: React.FC<CompanyHeaderProps> = ({
+const CompanyHeader: React.FC<CompanyHeaderProps> = React.memo(({
     logo,
     name,
     slogan,
@@ -35,6 +35,6 @@ const CompanyHeader: React.FC<CompanyHeaderProps> = ({
             </div>
         </div>
     );
-}
+})
 
 export default CompanyHeader;

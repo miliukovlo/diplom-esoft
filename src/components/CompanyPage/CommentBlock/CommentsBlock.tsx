@@ -11,10 +11,6 @@ interface CommentsBlockProps {
 const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId}: CommentsBlockProps) => {
 
     const comments = useGetForCompany<CommentInterface[]>('comment', CompanyId)
-    useEffect(() => {
-        console.log(CompanyId)
-        console.log(comments)
-    }, [comments, CompanyId])
 
     return (
         <div className='comments-list'>

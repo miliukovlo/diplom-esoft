@@ -30,5 +30,7 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
             } else {
                 return undefined
             }
+        default:
+            console.error('Вы указали неверный тип!')
     }
 }

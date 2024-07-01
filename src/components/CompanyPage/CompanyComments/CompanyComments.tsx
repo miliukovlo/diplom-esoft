@@ -10,7 +10,7 @@ interface CompanyCommentsProps {
     id: string
 }
 
-const CompanyComments: React.FC<CompanyCommentsProps> = ({
+const CompanyComments: React.FC<CompanyCommentsProps> = React.memo(({
     value,
     onChange,
     handleAddComment,
@@ -34,6 +34,6 @@ const CompanyComments: React.FC<CompanyCommentsProps> = ({
             />
         </>
     );
-}
+})
 
 export default CompanyComments;
