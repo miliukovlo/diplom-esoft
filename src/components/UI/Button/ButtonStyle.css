@@ -4,8 +4,11 @@
     transition-duration: 0.4s;
     cursor: pointer;
     color: rgb(221, 221, 221);
+    background-color: rgb(19,16,16);
+    border: 1px solid transparent;
 }
 .size-button:hover {
+    border: 1px solid rgba(221,221,221,0.7);
     background-color: rgb(29, 27, 27);
     color: white;
 }

@@ -1,0 +1,9 @@
+.projects-list {
+    width: 90%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #1b1919;
+    border-radius: 12px;
+}

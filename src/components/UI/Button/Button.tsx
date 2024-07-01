@@ -4,7 +4,7 @@ import './ButtonStyle.css'
 interface ButtonProps {
     text: string,
     onClick: () => void,
-    size: string
+    size: 'm' | 'l'
 }
 
 const Button : React.FC<ButtonProps>= ({text, onClick, size} : ButtonProps) => {

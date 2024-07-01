@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { addComment } from '../../data/reducers/commentsReducer';
 import CommentsBlock from './CommentBlock/CommentsBlock';
 import { GetIdForComment } from '../../Hooks/GetIdForComment';
+import CompanyComments from './CompanyComments/CompanyComments';
 
 interface CurrentCompanyInterface extends CompanyInterface {
     
@@ -46,19 +47,11 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 rating={rating}
                 specialization={specialization}
             />
-            <Textarea
-                placeholder='Напишите комментарий'
-                size='m'
+            <CompanyComments
                 value={commentValue.value}
                 onChange={commentValue.onChange}
-            />
-            <Button
-                text='Добавить комментарий'
-                size='m'
-                onClick={handleAddComment}
-            />
-            <CommentsBlock
-                CompanyId={id}
+                handleAddComment={handleAddComment}
+                id={id}
             />
         </div>
     );
