@@ -5,9 +5,9 @@ import CompanyHeader from './CompanyHeader/CompanyHeader';
 import { useTextarea } from '../../Hooks/useTextarea';
 import { useDispatch } from 'react-redux';
 import { addComment } from '../../data/reducers/commentsReducer';
-import { GetIdForComment } from '../../Hooks/GetIdForComment';
 import CompanyComments from './CompanyComments/CompanyComments';
 import ProjectsList from './ProjectsBlock/ProjectsList';
+import { GetId } from '../../Hooks/GetId';
 
 interface CurrentCompanyInterface extends CompanyInterface {
     
@@ -25,7 +25,7 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     const dispatch = useDispatch()
 
     const commentValue = useTextarea('')
-    const commentId = GetIdForComment()
+    const commentId = GetId('comment')
     const handleAddComment = () => {
             dispatch(addComment({
                 data: commentValue.value,

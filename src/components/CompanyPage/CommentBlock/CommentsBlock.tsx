@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { useGetCommentsForCompany } from '../../../Hooks/useGetCommentsForCompany';
 import Comment from '../../Common/Comment/Comment';
 import './CommentsBlockStyle.css'
+import { useGetForCompany } from '../../../Hooks/useGetForCompany';
+import { CommentInterface } from '../../../Interfaces/CommentInterface';
 
 interface CommentsBlockProps {
     CompanyId: string
@@ -9,7 +10,7 @@ interface CommentsBlockProps {
 
 const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId}: CommentsBlockProps) => {
 
-    const comments = useGetCommentsForCompany(CompanyId)
+    const comments = useGetForCompany<CommentInterface[]>('comment', CompanyId)
     useEffect(() => {
         console.log(CompanyId)
         console.log(comments)
@@ -18,7 +19,7 @@ const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId}: Com
     return (
         <div className='comments-list'>
             {
-                comments?.length !== 0 && comments !== null?
+                comments?.length !== 0 && comments !== undefined ?
                 comments.map(comment => {
                     return (
                         <Comment

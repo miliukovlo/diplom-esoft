@@ -1,7 +1,8 @@
 import React from 'react';
 import './ProjectsBlockStyle.css'
-import { useGetProjectsForCompany } from '../../../Hooks/GetProjectsForCompany';
 import Project from './Project/Project';
+import { useGetForCompany } from '../../../Hooks/useGetForCompany';
+import { ProjectInterface } from '../../../Interfaces/ProjectInterface';
 
 interface ProjectsListProps {
     companyId: string
@@ -11,11 +12,11 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
     companyId
 }: ProjectsListProps) => {
 
-    const projectsOfCompany = useGetProjectsForCompany(companyId)
+    const projectsOfCompany = useGetForCompany<ProjectInterface[]>('projects', companyId)
 
     return (
         <div className='projects-list'>
-            {projectsOfCompany !== null && projectsOfCompany.length !== 0 ?
+            {projectsOfCompany !== undefined && projectsOfCompany.length !== 0 ?
                 projectsOfCompany?.map((project) => {
                     return (
                         <Project
