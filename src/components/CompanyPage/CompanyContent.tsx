@@ -45,7 +45,9 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 rating={rating}
                 specialization={specialization}
             />
-            <ProjectsList/>
+            <ProjectsList
+                companyId={id}
+            />
             <CompanyComments
                 value={commentValue.value}
                 onChange={commentValue.onChange}

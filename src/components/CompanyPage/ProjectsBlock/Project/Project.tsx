@@ -2,7 +2,7 @@ import React from 'react';
 import './ProjectStyle.css'
 import { ProjectInterface } from '../../../../Interfaces/ProjectInterface';
 
-const Project: React.FC<ProjectInterface> = ({
+const Project: React.FC<ProjectInterface> = React.memo(({
     title,
     poster,
     id,
@@ -15,6 +15,6 @@ const Project: React.FC<ProjectInterface> = ({
             
         </div>
     );
-}
+})
 
 export default Project;

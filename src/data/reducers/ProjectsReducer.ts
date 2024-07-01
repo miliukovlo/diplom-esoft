@@ -2,7 +2,26 @@ import ProjectActionReducerInterface from "../../Interfaces/ProjectActionReducer
 import { ProjectInterface } from "../../Interfaces/ProjectInterface"
 
 const defaultProjects = {
-    projects: [] as ProjectInterface[]
+    projects: [
+        {
+            title: 'Название проекта',
+            poster: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
+            id: 14277124,
+            type: 'Жилой комплекс',
+            description: 'Описание...',
+            rating: 5,
+            companyId: 'someCompany3'
+        },
+        {
+            title: 'Название проекта',
+            poster: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
+            id: 14277122,
+            type: 'Жилой комплекс',
+            description: 'Описание...',
+            rating: 5,
+            companyId: 'someCompany3'
+        },
+    ] as ProjectInterface[]
 }
 
 const ADD_PROJECT = "ADD_PROJECT"
