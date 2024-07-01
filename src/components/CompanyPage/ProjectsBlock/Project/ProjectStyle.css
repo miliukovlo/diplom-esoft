@@ -8,6 +8,7 @@
     min-height: 300px;
     max-height: 500px;
     border-radius: 12px;
+    margin: 20px;
 }
 .project-block__poster-block {
     width: 40%;

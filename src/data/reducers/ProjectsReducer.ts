@@ -21,6 +21,15 @@ const defaultProjects = {
             rating: 5,
             companyId: 'someCompany3'
         },
+        {
+            title: 'Название проекта',
+            poster: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
+            id: 14277122,
+            type: 'Жилой комплекс',
+            description: 'Описание...',
+            rating: 5,
+            companyId: 'someCompany3'
+        },
     ] as ProjectInterface[]
 }
 
