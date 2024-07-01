@@ -2,11 +2,13 @@ import { combineReducers, createStore } from "redux";
 import { companiesReducer } from "./companyReducer";
 import { favoriteCompaniesReducer } from "./favoriteCompany";
 import { commentsReducer } from "./commentsReducer";
+import { projectsReducer } from "./ProjectsReducer";
 
 const rootReducer = combineReducers({
     companies: companiesReducer,
     favorite: favoriteCompaniesReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
+    projects: projectsReducer
 })
 
 export const store = createStore(rootReducer)

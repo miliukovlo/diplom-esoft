@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProjectsBlockStyle.css'
 
-const ProjectsBlock = () => {
+const ProjectsList = () => {
     return (
         <div className='projects-list'>
             
@@ -9,4 +9,4 @@ const ProjectsBlock = () => {
     );
 }
 
-export default ProjectsBlock;
+export default ProjectsList;
