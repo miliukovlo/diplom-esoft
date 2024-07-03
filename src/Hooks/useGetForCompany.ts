@@ -4,7 +4,7 @@ import { ProjectInterface } from "../Interfaces/ProjectInterface"
 import { CommentInterface } from "../Interfaces/CommentInterface"
 import CompanyInterface from "../Interfaces/CompanyInterface"
 
-export const useGetForCompany = <T> (type: string, companyId: string | undefined): T | undefined=> {
+export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | undefined): T | undefined=> {
     const allProjects = useSelector((state : RootState) => state.projects.projects as ProjectInterface[])
     const allComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
     const allCompanies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
@@ -27,6 +27,13 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
             if (companyId) {
                 const currentCompany = allCompanies.find((company) => company.id === companyId)
                 return currentCompany as T
+            } else {
+                return undefined
+            }
+        case 'project-by-id':
+            if (projectId) {
+                const currentProject = allProjects.filter((project) => project.id === projectId)
+                return currentProject[0] as T
             } else {
                 return undefined
             }
