@@ -10,21 +10,24 @@ const FavoriteContent: React.FC = () => {
 
     return (
         <main className='main favorite-content'>
-            <div className="companies-block">
+            <div className={favoriteCompanies.length === 0 ? "companies-block-none" : "companies-block"}>
                 {
+                    favoriteCompanies.length === 0 ?
+                    <h1 className='favorite-page__title'>Вы не добавили ни одну компанию в избранное!</h1>
+                    :
                     favoriteCompanies.map((company: CompanyInterface) => {
-                        return (
-                            <CompanyBlock
-                                name={company.name}
-                                id={company.id}
-                                slogan={company.slogan}
-                                logo={company.logo}
-                                specialization={company.specialization}
-                                rating={company.rating}
-                                key={company.id}
-                            />
-                        )
-                    })
+                            return (
+                                <CompanyBlock
+                                    name={company.name}
+                                    id={company.id}
+                                    slogan={company.slogan}
+                                    logo={company.logo}
+                                    specialization={company.specialization}
+                                    rating={company.rating}
+                                    key={company.id}
+                                />
+                            )
+                        })
                 }
             </div>
         </main>

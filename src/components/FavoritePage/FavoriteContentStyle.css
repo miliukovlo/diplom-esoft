@@ -7,6 +7,17 @@
     justify-items: center;
     align-items: center;
 }
+.companies-block-none {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.favorite-page__title {
+    font-size: 2vh;
+    color: rgb(221,221,221);
+}
 .favorite-content {
     display: flex;
     flex-direction: column;
