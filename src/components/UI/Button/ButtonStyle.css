@@ -34,6 +34,16 @@
     color: rgb(221, 221, 221);
     outline: 0;
 }
+.size-button-xl {
+    width: 75%;
+    height: 20%;
+    min-height: 50px;
+    text-indent: 10px;
+    border: 1px solid rgb(29, 27, 27);
+    border-radius: 20px;
+    color: rgb(221, 221, 221);
+    outline: 0;
+}
 .size-button-default {
     width: 20%;
     height: 20%;

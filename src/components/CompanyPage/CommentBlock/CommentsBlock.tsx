@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Comment from '../../Common/Comment/Comment';
 import './CommentsBlockStyle.css'
 import { useGetForCompany } from '../../../Hooks/useGetForCompany';
 import { CommentInterface } from '../../../Interfaces/CommentInterface';
 
 interface CommentsBlockProps {
-    CompanyId: string
+    CompanyId?: string,
+    ProjectId?: number,
+    type: string
 }
 
-const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId}: CommentsBlockProps) => {
+const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, ProjectId, type}: CommentsBlockProps) => {
 
-    const comments = useGetForCompany<CommentInterface[]>('comment', CompanyId)
+    console.log(type)
+    console.log(ProjectId)
+
+    const comments = useGetForCompany<CommentInterface[]>(type === 'company' ? 'comment-for-company' : type === 'project' ? 'comment-for-project' : 'comment-for-company', CompanyId, ProjectId)
 
     return (
         <div className='comments-list'>

@@ -13,7 +13,6 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
 }: ProjectsListProps) => {
 
     const projectsOfCompany = useGetForCompany<ProjectInterface[]>('project', companyId)
-    console.log(projectsOfCompany)
     return (
         <div className='projects-list'>
             {projectsOfCompany !== undefined && projectsOfCompany.length !== 0 ?

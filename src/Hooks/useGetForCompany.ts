@@ -9,9 +9,16 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
     const allComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
     const allCompanies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
     switch(type) {
-        case 'comment':
+        case 'comment-for-company':
             if (companyId) {
                 const commentsForCompany = allComments.filter((comments) => comments.companyId === companyId)
+                return commentsForCompany as T
+            } else {
+                return undefined
+            }
+        case 'comment-for-project':
+            if (projectId) {
+                const commentsForCompany = allComments.filter((comments) => comments.projectId === projectId)
                 return commentsForCompany as T
             } else {
                 return undefined
