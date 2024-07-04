@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../../UI/Button/Button';
 
-const ProjectRequest = () => {
+const ProjectRequest = React.memo(() => {
     return (
         <div className="project-content__request">
             <Button
@@ -11,6 +11,6 @@ const ProjectRequest = () => {
             />
         </div>
     );
-}
+})
 
 export default ProjectRequest;

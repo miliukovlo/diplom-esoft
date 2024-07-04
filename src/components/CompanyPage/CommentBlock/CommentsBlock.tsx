@@ -11,10 +11,6 @@ interface CommentsBlockProps {
 }
 
 const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, ProjectId, type}: CommentsBlockProps) => {
-
-    console.log(type)
-    console.log(ProjectId)
-
     const comments = useGetForCompany<CommentInterface[]>(type === 'company' ? 'comment-for-company' : type === 'project' ? 'comment-for-project' : 'comment-for-company', CompanyId, ProjectId)
 
     return (

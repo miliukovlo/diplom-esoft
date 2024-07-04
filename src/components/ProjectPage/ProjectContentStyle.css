@@ -54,3 +54,63 @@
     align-items: center;
     justify-content: center;
 }
+.apartments-list {
+    width: 90%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(19,16,16);
+    margin: 20px;
+    border-radius: 12px;
+}
+.project-block {
+    width: 100%;
+    height: 80%;
+    background-color: #1b1919;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 300px;
+    max-height: 500px;
+    border-radius: 12px;
+    margin: 20px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition-duration: 0.7s;
+}
+.project-block:hover {
+    border: 2px solid rgb(221,221,221);
+}
+.project-block__poster-block {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+.project-block__info {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.info-title {
+    color: rgb(221,221,221);
+    font-size: 1.5rem;
+    text-align: center;
+}
+.info-text {
+    color: rgb(221,221,221);
+    font-size: .8rem;
+}
+.project-block__link {
+    text-decoration: none;
+    width: 40%
+}

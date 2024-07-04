@@ -1,12 +1,12 @@
 import React from 'react';
 import './ProjectContentStyle.css'
 import { ProjectInterface } from '../../Interfaces/ProjectInterface';
-import ProjectsList from '../CompanyPage/ProjectsBlock/ProjectsList';
 import ProjectImage from './ProjectImage/ProjectImage';
 import ProjectInfo from './ProjectInfo/ProjectInfo';
 import ProjectRequest from './ProjectRequest/ProjectRequest';
 import CommentList from '../Common/CommentList/CommentList';
 import { useTextarea } from '../../Hooks/useTextarea';
+import ProjectApartmentList from './ProjectApartmentList/ProjectApartmentList';
 
 const ProjectContent: React.FC<ProjectInterface> = React.memo(({
     poster,
@@ -32,11 +32,10 @@ const ProjectContent: React.FC<ProjectInterface> = React.memo(({
                 description={description}
             />
             <ProjectRequest/>
-            <div className="project-content__apartment">
-                <ProjectsList
-                    companyId={companyId}
-                />
-            </div>
+            <ProjectApartmentList
+                projectId={id}
+                companyId={companyId}
+            />
             <CommentList
                 type={'project'}
                 value={commentValue.value}

@@ -12,8 +12,6 @@ const ProjectPage = () => {
 
     const currentProject: ProjectInterface = useGetForCompany<ProjectInterface>('project-by-id',params.id, id)!
 
-    console.log(currentProject)
-
     return (
         <main className='main'>
             <ProjectContent

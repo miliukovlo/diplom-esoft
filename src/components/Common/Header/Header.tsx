@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const links : HeaderLinksInterface[] = HeaderLinks
 
-const Header : React.FC = () => {
+const Header : React.FC = React.memo(() => {
     return (
         <header className='header'>
             <ul className='header-list'>
@@ -18,6 +18,6 @@ const Header : React.FC = () => {
             </ul>
         </header>
     );
-}
+})
 
 export default Header;
