@@ -1,0 +1,11 @@
+.apartments-list {
+    width: 90%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(19,16,16);
+    margin: 20px;
+    border-radius: 12px;
+}

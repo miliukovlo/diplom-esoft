@@ -5,7 +5,7 @@ import { CommentInterface } from "../Interfaces/CommentInterface"
 import CompanyInterface from "../Interfaces/CompanyInterface"
 import { ApartmentInterface } from "../Interfaces/ApartmentInterface"
 
-export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | undefined): T | undefined=> {
+export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | undefined, apartmentId?: number | undefined): T | undefined=> {
     const allProjects = useSelector((state : RootState) => state.projects.projects as ProjectInterface[])
     const allComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
     const allCompanies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
@@ -22,6 +22,13 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
             if (projectId) {
                 const commentsForCompany = allComments.filter((comments) => comments.projectId === projectId)
                 return commentsForCompany as T
+            } else {
+                return undefined
+            }
+        case 'comment-for-apartment':
+            if (apartmentId) {
+                const commentsForApartment = allComments.filter((comments) => comments.apartmentId === apartmentId)
+                return commentsForApartment as T
             } else {
                 return undefined
             }
@@ -50,6 +57,13 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
             if (projectId) {
                 const currentProject = allProjects.filter((project) => project.id === projectId)
                 return currentProject[0] as T
+            } else {
+                return undefined
+            }
+        case 'apartment-by-id':
+            if (apartmentId) {
+                const currentApartment = allApartments.filter((apartment) => apartment.id === apartmentId)
+                return currentApartment[0] as T
             } else {
                 return undefined
             }

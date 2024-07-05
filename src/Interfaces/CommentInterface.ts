@@ -3,5 +3,6 @@ export interface CommentInterface {
     data: string,
     companyId?: string,
     projectId?: number,
+    apartmentId?: number,
     id: number
 }

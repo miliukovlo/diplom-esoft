@@ -1,0 +1,19 @@
+.project-content__info {
+    width: 90%;
+    height: 30vh;
+    border-radius: 20px;
+    background-color: rgb(19, 16, 16);
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.project-content__text {
+    color:rgb(221,221,221);
+    font-size: 1.5vh;
+    width: 90%;
+}
+.text-description {
+    height: 70%;
+}

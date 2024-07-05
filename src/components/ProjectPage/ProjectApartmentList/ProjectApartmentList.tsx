@@ -2,7 +2,7 @@ import React from 'react';
 import { useGetForCompany } from '../../../Hooks/useGetForCompany';
 import { ApartmentInterface } from '../../../Interfaces/ApartmentInterface';
 import ProjectApartmentBlock from '../ProjectApartmentBlock/ProjectApartmentBlock';
-
+import './ProjectApartmentListStyle.css'
 
 interface ProjectApartmentListProps {
     projectId: number,
@@ -36,7 +36,7 @@ const ProjectApartmentList: React.FC<ProjectApartmentListProps> = React.memo(({
                     )
                 })
             :
-            <h3>Проектов пока что нет!</h3>
+            <h3 className='no-apartments__text'>Проектов пока что нет!</h3>
         }
         </div>
     );

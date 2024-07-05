@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProjectImageStyle.css'
 
 interface ProjectImageProps {
     poster: string

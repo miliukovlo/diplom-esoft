@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProjectInfoStyle.css'
 
 interface ProjectInfoProps {
     type: string,

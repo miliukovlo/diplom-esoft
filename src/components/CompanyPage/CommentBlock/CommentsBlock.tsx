@@ -7,11 +7,16 @@ import { CommentInterface } from '../../../Interfaces/CommentInterface';
 interface CommentsBlockProps {
     CompanyId?: string,
     ProjectId?: number,
+    ApartmentId?: number,
     type: string
 }
 
-const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, ProjectId, type}: CommentsBlockProps) => {
-    const comments = useGetForCompany<CommentInterface[]>(type === 'company' ? 'comment-for-company' : type === 'project' ? 'comment-for-project' : 'comment-for-company', CompanyId, ProjectId)
+const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, ProjectId, ApartmentId, type}: CommentsBlockProps) => {
+    const comments = useGetForCompany<CommentInterface[]>(type === 'company' ? 'comment-for-company' :
+            type === 'project' ? 'comment-for-project' : 
+            type === 'apartment' ? 'comment-for-apartment' : 
+            'comment-for-company', 
+            CompanyId, ProjectId, ApartmentId)
 
     return (
         <div className='comments-list'>
