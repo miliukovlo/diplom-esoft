@@ -1,0 +1,17 @@
+.apartment-content__info-block {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.info-text {
+    font-size: 1.7vh;
+    margin: 5px;
+    color: rgb(221,221,221);
+    text-align: left;
+    padding: 5px;
+    border-bottom: 2px solid rgb(221,221,221);
+    width: 100%;
+}

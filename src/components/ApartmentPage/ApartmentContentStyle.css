@@ -23,23 +23,3 @@
     min-height: 70vh;
     margin: 20px;
 }
-.apartment-content__image-block {
-    width: 40%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.image {
-    width: 65%;
-    height: 65%;
-    border-radius: 12px;
-}
-.apartment-content__info-block {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-}
