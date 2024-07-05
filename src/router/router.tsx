@@ -7,6 +7,7 @@ import CompanyPage from '../Pages/CompanyPage/CompanyPage';
 import FavoritePage from '../Pages/FavoritePage/FavoritePage';
 import ProjectPage from '../Pages/ProjectPage/ProjectPage';
 import ApartmentPage from '../Pages/ApartmentPage/ApartmentPage';
+import UserPage from '../Pages/UserPage/UserPage';
 
 const Router : React.FC = () => {
     return (
@@ -19,6 +20,7 @@ const Router : React.FC = () => {
                     <Route path='/company/:id' element={<CompanyPage/>}/>
                     <Route path='/company/:id/project/:projectId' element={<ProjectPage/>}/>
                     <Route path='/company/:id/project/:projectId/apartment/:apartmentId' element={<ApartmentPage/>}/>
+                    <Route path='/user' element={<UserPage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

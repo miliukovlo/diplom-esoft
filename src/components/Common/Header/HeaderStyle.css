@@ -28,3 +28,19 @@
 .element-link:visited {
     color: white;
 }
+.icon-link__block {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-link {
+    padding: 5px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition-duration: 0.6s;
+}
+.icon-link:hover {
+    border: 2px solid rgb(221,221,221);
+}
