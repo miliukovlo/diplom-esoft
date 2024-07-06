@@ -5,8 +5,16 @@ import CommentList from '../Common/CommentList/CommentList';
 import { useTextarea } from '../../Hooks/useTextarea';
 import ApartmentImage from './ApartmentImage/ApartmentImage';
 import ApartmentInfo from './ApartmentInfo/ApartmentInfo';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../data/reducers/store';
+import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
+import ProjectRequest from '../ProjectPage/ProjectRequest/ProjectRequest';
 
-const ApartmentContent: React.FC<ApartmentInterface> = React.memo(({
+interface ApartmentContentProps extends ApartmentInterface {
+    theme: string
+}
+
+const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
     title,
     cost,
     square,
@@ -20,15 +28,16 @@ const ApartmentContent: React.FC<ApartmentInterface> = React.memo(({
     poster,
     description,
     type,
-    rating
-}: ApartmentInterface) => {
+    rating,
+    theme
+}: ApartmentContentProps) => {
 
     const commentValue = useTextarea('')
 
     return (
             <div className="apartment-content">
                 <h1 className='apartment-content__title'>{title}</h1>
-                <div className="apartment-content__info">
+                <div className={theme === 'dark' ? "apartment-content__info apartment-info__dark" : "apartment-content__info apartment-info__light"}>
                     <ApartmentImage
                         poster={poster}
                     />
@@ -42,8 +51,10 @@ const ApartmentContent: React.FC<ApartmentInterface> = React.memo(({
                         haveBalcony={haveBalcony}
                         isSale={isSale}
                         amount={amount}
+                        theme={theme}
                     />
                 </div>
+                <ProjectRequest/>
                 <CommentList
                     type='apartment'
                     value={commentValue.value}
@@ -52,6 +63,7 @@ const ApartmentContent: React.FC<ApartmentInterface> = React.memo(({
                     apartmentId={id}
                     CompanyId={companyId}
                     projectId={projectId}
+                    theme={theme}
                 />
             </div>
     );

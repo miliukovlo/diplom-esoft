@@ -2,7 +2,7 @@ import ThemeActionReducerInterface from "../../Interfaces/ThemeActionReducerInte
 import { ThemeReducerInterface } from "../../Interfaces/ThemeReducerInterface"
 
 const defaultTheme = {
-    theme: {theme: 'dark'} as ThemeReducerInterface
+    theme: {theme: 'light'} as ThemeReducerInterface
 }
 
 const CHANGE_THEME= "CHANGE_THEME"

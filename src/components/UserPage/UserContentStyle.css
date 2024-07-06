@@ -29,8 +29,17 @@
     border: 2px solid transparent;
     transition-duration: 0.7s;
 }
-.user-image:hover {
+.light-color {
+    color: rgb(221,221,221);
+}
+.dark-color {
+    color: rgb(19,16,16);
+}
+.user-image-dark:hover {
     border: 2px solid rgb(221,221,221)
+}
+.user-image-light:hover {
+    border: 2px solid rgb(19,16,16)
 }
 .user-content__info-block {
     width: 40%;
@@ -69,9 +78,23 @@
     margin: 20px;
     border: 2px solid rgb(221,221,221);
     border-radius: 8px;
+    transition-duration: 0.4s;
+}
+.parameter-dark {
+    border: 2px solid rgb(221,221,221);
+}
+.parameter-light {
+    border: 2px solid rgb(19,16,16);
 }
 .parameter-title {
     font-size: 1.7vh;
     color: rgb(221,221,221);
     margin: 10px;
+    transition-duration: 0.4s;
+}
+.dark-title {
+    color: rgb(19,16,16);
+}
+.light-title {
+    color: rgb(221,221,221)
 }

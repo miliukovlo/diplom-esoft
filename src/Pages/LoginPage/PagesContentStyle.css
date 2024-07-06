@@ -1,5 +1,11 @@
 .main {
     min-height: 80vh;
     width: 100%; 
+    transition-duration: 0.4s;
+}
+.dark-back {
     background-color: #1b1919;
+}
+.light-back {
+    background-color: rgb(221,221,221);
 }

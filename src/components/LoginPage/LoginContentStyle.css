@@ -18,12 +18,21 @@
 }
 .registration-text {
     font-size: 2vh;
-    color: rgb(221, 221, 221);
     transition-duration: 0.4s;
-    border-bottom: 2px solid transparent;
     padding: 5px 10px;
     cursor: pointer;
 }
-.registration-text:hover {
+.registration-text-dark {
+    color: rgb(221, 221, 221);
+    border-bottom: 2px solid transparent;
+}
+.registration-text-dark:hover {
     border-bottom: 2px solid rgb(221, 221, 221);
+}
+.registration-text-light {
+    color: rgb(19, 16, 16);
+    border-bottom: 2px solid transparent;
+}
+.registration-text-light:hover {
+    border-bottom: 2px solid rgb(19, 16, 16);
 }

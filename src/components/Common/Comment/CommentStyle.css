@@ -6,17 +6,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgb(29, 27, 27);
-    background-color: #1b1919;
     border-radius: 8px;
     margin: 10px;
+}
+.comment-block-dark {
+    border: 2px solid rgb(29, 27, 27);
+    background-color: #1b1919;
+}
+.comment-block-light {
+    border: 2px solid rgb(185, 185, 185);
+    background-color: rgb(221,221,221);
 }
 .comment-block__user {
     height: 15%;
     width: 80%;
     font-size: 2vh;
     text-align: left;
-    color: rgb(221,221,221);
 }
 .comment-block__data {
     height: 85%;
@@ -24,5 +29,4 @@
     word-wrap: break-word;
     font-size: 1.4vh;
     text-align: left;
-    color: rgb(221,221,221);
 }

@@ -1,6 +1,9 @@
 import React, { ChangeEvent } from 'react';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../data/reducers/store';
+import { ThemeReducerInterface } from '../../../Interfaces/ThemeReducerInterface';
 
 interface UserParameterProps {
     parameterTitle: string,
@@ -10,7 +13,8 @@ interface UserParameterProps {
     onChangeForOld: (e: ChangeEvent<HTMLInputElement>) => void,
     onChangeForNew: (e: ChangeEvent<HTMLInputElement>) => void,
     valueOld: string,
-    valueNew: string
+    valueNew: string,
+    theme: string
 }
 
 const UserParameter: React.FC<UserParameterProps> = React.memo(({
@@ -21,11 +25,13 @@ const UserParameter: React.FC<UserParameterProps> = React.memo(({
     onChangeForOld,
     onChangeForNew,
     valueOld,
-    valueNew
+    valueNew, 
+    theme
 }) => {
+
     return (
-        <div className="parameter">
-            <h4 className="parameter-title">{parameterTitle}</h4>
+        <div className={theme === 'dark' ? "parameter parameter-dark" : 'parameter parameter-light'}>
+            <h4 className={theme === 'dark' ? "parameter-title light-title" : 'parameter-title dark-title'}>{parameterTitle}</h4>
             <Input
                 size='m'
                 placeholder={placeholderForOld}

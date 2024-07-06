@@ -7,10 +7,13 @@ import { useInput } from '../../Hooks/useInput';
 import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoInterface';
 import UserParameter from './UserParameter/UserParameter';
 import UserTheme from './UserTheme/UserTheme';
+import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 
 const UserContent = React.memo(() => {
 
     const getUser = useSelector((state : RootState) => state.user.user as UserInterface[])
+
+    const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
     const user = getUser[0]
 
@@ -69,14 +72,14 @@ const UserContent = React.memo(() => {
         <div className='user-content'>
             <div className="user-content__blocks">
                 <div className="user-content__image-block">
-                    <img src={user.image ? user.image : 'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} alt="Аватар пользователя" className="user-image" />
+                    <img src={user.image ? user.image : 'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} alt="Аватар пользователя" className={theme.theme === 'dark' ? "user-image user-image-dark" : 'user-image user-image-light'} />
                 </div>
                 <div className="user-content__info-block">
-                    <p className="info-text">Имя: {user.firstName}</p>
-                    <p className="info-text">Фамилия: {user.lastName}</p>
-                    <p className="info-text">Никнейм: {user.username}</p>
-                    <p className="info-text">Почта: {user.email}</p>
-                    <p className="info-text">Телефон: {user.phone}</p>
+                    <p className={theme.theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Имя: {user.firstName}</p>
+                    <p className={theme.theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Фамилия: {user.lastName}</p>
+                    <p className={theme.theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Никнейм: {user.username}</p>
+                    <p className={theme.theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Почта: {user.email}</p>
+                    <p className={theme.theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Телефон: {user.phone}</p>
                 </div>
             </div>
             <div className="user-content__config">
@@ -94,10 +97,13 @@ const UserContent = React.memo(() => {
                                         valueNew={input.valueOfInputNew.value}
                                         onChangeForOld={input.valueOfInputOld.onChange}
                                         onChangeForNew={input.valueOfInputNew.onChange}
+                                        theme={theme.theme}
                                     />
                                 )
                             })}
-                            <UserTheme/>
+                            <UserTheme
+                                theme={theme.theme}
+                            />
                         </div>
                     </div>
                 </div>

@@ -6,18 +6,20 @@ import './ProjectApartmentListStyle.css'
 
 interface ProjectApartmentListProps {
     projectId: number,
-    companyId: string
+    companyId: string,
+    theme: string
 }
 
 const ProjectApartmentList: React.FC<ProjectApartmentListProps> = React.memo(({
     projectId,
-    companyId
+    companyId,
+    theme
 }: ProjectApartmentListProps) => {
 
     const apartmentsOfProject = useGetForCompany<ApartmentInterface[]>('apartments', companyId, projectId)
 
     return (
-        <div className='apartments-list'>
+        <div className={theme === 'dark' ? 'apartments-list apartments-list-dark' : 'apartments-list apartments-list-light'}>
             {apartmentsOfProject !== undefined && apartmentsOfProject.length !== 0 ?
                 apartmentsOfProject?.map((apartment) => {
                     return (
@@ -31,12 +33,13 @@ const ProjectApartmentList: React.FC<ProjectApartmentListProps> = React.memo(({
                             projectId={apartment.projectId}
                             poster={apartment.poster}
                             type={apartment.type}
-                            key={apartment.id}                       
+                            key={apartment.id}   
+                            theme={theme}                    
                         />
                     )
                 })
             :
-            <h3 className='no-apartments__text'>Проектов пока что нет!</h3>
+            <h3 className={theme === 'dark' ? 'no-apartments__text light-title' : 'no-apartments__text dark-title'}>Проектов пока что нет!</h3>
         }
         </div>
     );

@@ -4,6 +4,9 @@ import Input from '../UI/Input/Input';
 import { useInput } from '../../Hooks/useInput';
 import Button from '../UI/Button/Button';
 import useEnterInSystem from '../../Hooks/useEnterInSystem';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../data/reducers/store';
+import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 
 const LoginContent : React.FC = () => {
     const userName = useInput<string>('')
@@ -12,9 +15,10 @@ const LoginContent : React.FC = () => {
     const [error, setError] = useState<boolean>(false)
 
     const enterInSystem = useEnterInSystem(userName.value, password.value, setError)
+    const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
     return (
-        <main className='main main-login__content'>
+        <main className={theme.theme === 'dark' ? 'main main-login__content dark-back' : 'main main-login__content light-back'}>
             <h2 className='main-login__title'>{registrationOrLogin ? 'Войти' : 'Регистрация'}</h2>
             <Input
                 value={userName.value}
@@ -38,7 +42,7 @@ const LoginContent : React.FC = () => {
             <p className={error ? 'error error-true' : 'error'}>Не удалось войти в систему!</p>
             <p 
             onClick={() => {setRegistrationOrLogin(!registrationOrLogin)}}
-            className='registration-text' 
+            className={theme.theme === 'dark' ? 'registration-text registration-text-dark' : 'registration-text registration-text-light'} 
             >{registrationOrLogin ? 'Зарегистрироваться' : 'Войти'}</p>
         </main>
     );

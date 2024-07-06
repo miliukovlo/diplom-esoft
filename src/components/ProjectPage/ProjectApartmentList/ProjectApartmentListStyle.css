@@ -5,7 +5,12 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: rgb(19,16,16);
     margin: 20px;
     border-radius: 12px;
+}
+.apartments-list-dark {
+    background-color: rgb(19,16,16);
+}
+.apartments-list-light {
+    background-color: rgb(199,199,199);
 }

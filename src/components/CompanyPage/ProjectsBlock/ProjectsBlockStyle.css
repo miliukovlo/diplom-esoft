@@ -5,9 +5,14 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: rgb(19,16,16);
     margin: 20px;
     border-radius: 12px;
+}
+.list-light {
+    background-color: rgb(199,199,199);
+}
+.list-black {
+    background-color: rgb(19,16,16);
 }
 .no-projects {
     font-size: 2vh;

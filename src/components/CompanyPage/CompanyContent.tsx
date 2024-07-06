@@ -7,7 +7,7 @@ import ProjectsList from './ProjectsBlock/ProjectsList';
 import CommentList from '../Common/CommentList/CommentList';
 
 interface CurrentCompanyInterface extends CompanyInterface {
-    
+    theme: string
 }
 
 const CompanyContent: React.FC<CurrentCompanyInterface> = ({
@@ -16,7 +16,8 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     slogan,
     rating,
     specialization,
-    id
+    id,
+    theme
 }: CurrentCompanyInterface) => {
 
 
@@ -30,9 +31,11 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 slogan={slogan}
                 rating={rating}
                 specialization={specialization}
+                theme={theme}
             />
             <ProjectsList
                 companyId={id}
+                theme={theme}
             />
             <CommentList
                 value={commentValue.value}
@@ -40,6 +43,7 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 setValue={commentValue.setValue}
                 CompanyId={id}
                 type='company'
+                theme={theme}
             />
         </div>
     );

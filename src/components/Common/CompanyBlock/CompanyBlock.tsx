@@ -4,14 +4,19 @@ import CompanyInterface from '../../../Interfaces/CompanyInterface';
 import { useNavigate } from 'react-router-dom';
 import HeartBlock from '../HeartBlock/heartBlock';
 
-const CompanyBlock: React.FC<CompanyInterface> = React.memo(({
+export interface CompanyBlockProps extends CompanyInterface {
+    theme: string
+}
+
+const CompanyBlock: React.FC<CompanyBlockProps> = React.memo(({
     id,
     name,
     logo,
     specialization,
     slogan,
-    rating
-}: CompanyInterface) => {
+    rating, 
+    theme
+}: CompanyBlockProps) => {
 
     const navigate = useNavigate()
 
@@ -20,7 +25,7 @@ const CompanyBlock: React.FC<CompanyInterface> = React.memo(({
     }
 
     return (
-        <div className="company-block" key={id} onClick={navigateToCompany}>
+        <div className={theme === 'dark' ? "company-block company-block-dark" : 'company-block company-block-light'} key={id} onClick={navigateToCompany}>
             <h1 className='company-title__text'>{name}</h1>
             <img src={logo} alt="Логотип компании" className='company-logo'/>
             <p className='company-text'>Специализация: {specialization === 'apartment' ?

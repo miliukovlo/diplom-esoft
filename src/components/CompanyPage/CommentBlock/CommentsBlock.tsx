@@ -8,10 +8,11 @@ interface CommentsBlockProps {
     CompanyId?: string,
     ProjectId?: number,
     ApartmentId?: number,
-    type: string
+    type: string,
+    theme: string
 }
 
-const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, ProjectId, ApartmentId, type}: CommentsBlockProps) => {
+const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, ProjectId, ApartmentId, type, theme}: CommentsBlockProps) => {
     const comments = useGetForCompany<CommentInterface[]>(type === 'company' ? 'comment-for-company' :
             type === 'project' ? 'comment-for-project' : 
             type === 'apartment' ? 'comment-for-apartment' : 
@@ -19,7 +20,7 @@ const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, Proj
             CompanyId, ProjectId, ApartmentId)
 
     return (
-        <div className='comments-list'>
+        <div className={theme === 'dark' ? 'comments-list list-black' : 'comments-list list-light'}>
             {
                 comments?.length !== 0 && comments !== undefined ?
                 comments.map(comment => {
@@ -28,11 +29,12 @@ const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, Proj
                             user={comment.user}
                             data={comment.data}
                             key={comment.id}
+                            theme={theme}
                         />
                     )
                 })
                 :
-                <h1 className='comments-list__no-comments-msg'>Комментариев нет!</h1>
+                <h1 className={theme === 'dark' ? 'comments-list__no-comments-msg light-title' : 'comments-list__no-comments-msg dark-title'}>Комментариев нет!</h1>
             }
         </div>
     );

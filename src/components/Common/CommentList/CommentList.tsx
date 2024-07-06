@@ -13,7 +13,8 @@ interface CommentListProps {
     CompanyId?: string,
     type: string,
     projectId?: number,
-    apartmentId?: number
+    apartmentId?: number,
+    theme: string
 }
 
 const CommentList: React.FC<CommentListProps> = React.memo(({
@@ -23,7 +24,8 @@ const CommentList: React.FC<CommentListProps> = React.memo(({
     setValue,
     type,
     projectId,
-    apartmentId
+    apartmentId,
+    theme
 }: CommentListProps) => {
 
     const dispatch = useDispatch()
@@ -59,6 +61,7 @@ const CommentList: React.FC<CommentListProps> = React.memo(({
                 ApartmentId={apartmentId}
                 type={type}
                 ProjectId={projectId}
+                theme={theme}
             />
         </>
     );

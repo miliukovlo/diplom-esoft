@@ -2,17 +2,19 @@ import React from 'react';
 import './CommentStyle.css'
 interface CommentProps {
     user: string,
-    data: string
+    data: string,
+    theme: string
 }
 
 const Comment: React.FC<CommentProps> = React.memo(({
     user,
-    data
+    data,
+    theme
 }: CommentProps) => {
     return (
-        <div className='comment-block'>
-            <h1 className='comment-block__user'>{user}</h1>
-            <p className="comment-block__data">{data}</p>
+        <div className={theme === 'dark' ? 'comment-block comment-block-dark' : 'comment-block comment-block-light'}>
+            <h1 className={theme === 'dark' ? 'comment-block__user light-title' : 'comment-block__user dark-title'}>{user}</h1>
+            <p className={theme === 'dark' ? 'comment-block__data light-title' : 'comment-block__data dark-title'}>{data}</p>
         </div>
     );
 })

@@ -12,6 +12,11 @@
     color: rgb(221,221,221);
     text-align: left;
     padding: 5px;
-    border-bottom: 2px solid rgb(221,221,221);
     width: 100%;
+}
+.info-text__border-bottom-dark {
+    border-bottom: 2px solid rgb(19,16,16);
+}
+.info-text__border-bottom-light {
+    border-bottom: 2px solid rgb(221,221,221);
 }

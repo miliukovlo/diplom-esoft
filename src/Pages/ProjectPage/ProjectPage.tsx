@@ -3,6 +3,9 @@ import { useGetForCompany } from '../../Hooks/useGetForCompany';
 import { ProjectInterface } from '../../Interfaces/ProjectInterface';
 import { Params, useParams } from 'react-router-dom';
 import ProjectContent from '../../components/ProjectPage/ProjectContent';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../data/reducers/store';
+import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 
 const ProjectPage = () => {
 
@@ -12,8 +15,10 @@ const ProjectPage = () => {
 
     const currentProject: ProjectInterface = useGetForCompany<ProjectInterface>('project-by-id',params.id, id)!
 
+    const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+
     return (
-        <main className='main'>
+        <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>
             <ProjectContent
                 title={currentProject.title}
                 rating={currentProject.rating}
@@ -22,6 +27,7 @@ const ProjectPage = () => {
                 id={currentProject.id}
                 type={currentProject.type}
                 companyId={currentProject.companyId}
+                theme={theme.theme}
             />
         </main>
     );
