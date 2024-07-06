@@ -31,7 +31,7 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
                     )
                 })
             :
-            <h3>Проектов пока что нет!</h3>
+            <h3 className='no-projects'>Проектов пока что нет!</h3>
             }
         </div>
     );

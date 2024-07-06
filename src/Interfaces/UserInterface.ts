@@ -8,4 +8,6 @@ export interface UserInterface {
     password: string,
     isAdmin: boolean,
     companyId?: string,
+    image?: string,
+    theme?: string
 }

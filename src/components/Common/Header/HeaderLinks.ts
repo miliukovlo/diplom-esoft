@@ -4,7 +4,7 @@ export const HeaderLinks : HeaderLinksInterface[] = [
     {
         title: 'Главная страница',
         id: 1,
-        link: '/'
+        link: '/main'
     },
     {
         title: 'Избранное',

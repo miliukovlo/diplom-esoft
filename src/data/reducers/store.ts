@@ -4,13 +4,17 @@ import { favoriteCompaniesReducer } from "./favoriteCompany";
 import { commentsReducer } from "./commentsReducer";
 import { projectsReducer } from "./ProjectsReducer";
 import { apartmentReducer } from "./apartmentReducer";
+import { userReducer } from "./userReducer";
+import { themeReducer } from "./ThemeReducer";
 
 const rootReducer = combineReducers({
     companies: companiesReducer,
     favorite: favoriteCompaniesReducer,
     comments: commentsReducer,
     projects: projectsReducer,
-    apartments: apartmentReducer
+    apartments: apartmentReducer,
+    user: userReducer,
+    theme: themeReducer
 })
 
 export const store = createStore(rootReducer)

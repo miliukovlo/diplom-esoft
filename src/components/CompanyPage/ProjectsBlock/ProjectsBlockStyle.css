@@ -9,3 +9,7 @@
     margin: 20px;
     border-radius: 12px;
 }
+.no-projects {
+    font-size: 2vh;
+    color: rgb(221,221,221);
+}
