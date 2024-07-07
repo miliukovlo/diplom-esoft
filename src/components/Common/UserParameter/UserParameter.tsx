@@ -1,9 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../data/reducers/store';
-import { ThemeReducerInterface } from '../../../Interfaces/ThemeReducerInterface';
 
 interface UserParameterProps {
     parameterTitle: string,

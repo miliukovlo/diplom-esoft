@@ -1,22 +1,29 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../data/reducers/store';
-import { UserInterface } from '../../Interfaces/UserInterface';
-import './UserContentStyle.css'
+import './AdminContentStyle.css'
+import AdminInformation from './AdminInformation/AdminInformation';
 import { useInput } from '../../Hooks/useInput';
-import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoInterface';
-import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
-import UserInformation from './UserInformation/UserInformation';
 import UserConfig from '../Common/UserConfig/UserConfig';
+import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoInterface';
 
+interface AdminContentProps {
+    email: string,
+    firstName: string,
+    lastName: string,
+    username: string,
+    phone: string,
+    image: string | undefined,
+    theme: string
+}
 
-const UserContent = React.memo(() => {
-
-    const getUser = useSelector((state : RootState) => state.user.user as UserInterface[])
-
-    const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
-
-    const user = getUser[0]
+const AdminContent: React.FC<AdminContentProps> = ({
+    email,
+    firstName,
+    lastName,
+    username,
+    phone,
+    image,
+    theme
+}) => {
 
     const inputsInfo: UserPageInputInfoInterface[] = [
         {
@@ -70,22 +77,22 @@ const UserContent = React.memo(() => {
     ]
 
     return (
-        <div className='user-content'>
-            <UserInformation
-                theme={theme.theme}
-                firstName={user.firstName}
-                lastName={user.lastName}
-                email={user.email}
-                phone={user.phone}
-                image={user.image}
-                username={user.username}
+        <div className='admin-content'>
+            <AdminInformation
+                    email={email}
+                    firstName={firstName}
+                    lastName={lastName}
+                    username={username}
+                    phone={phone}
+                    image={image}
+                    theme={theme}
             />
             <UserConfig
-                theme={theme.theme}
                 inputsInfo={inputsInfo}
+                theme={theme}
             />
         </div>
     );
-})
+}
 
-export default UserContent;
+export default AdminContent;

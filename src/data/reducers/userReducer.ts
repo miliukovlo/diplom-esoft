@@ -9,8 +9,7 @@ const defaultUser = {
         email: 'example@mail.ru',
         phone: '+79998886655',
         id: 1234534534,
-        password: 'password',
-        isAdmin: false,
+        isAdmin: true,
     }] as UserInterface[]
 }
 

@@ -7,6 +7,7 @@ import UserIcon from '../../UI/UserIcon/UserIcon';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../data/reducers/store';
 import { ThemeReducerInterface } from '../../../Interfaces/ThemeReducerInterface';
+import { UserInterface } from '../../../Interfaces/UserInterface';
 
 const links : HeaderLinksInterface[] = HeaderLinks
 
@@ -14,6 +15,8 @@ const links : HeaderLinksInterface[] = HeaderLinks
 const Header : React.FC = React.memo(() => {
 
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+    const getUser = useSelector((state : RootState) => state.user.user as UserInterface[])
+    const currentUser = getUser[0]
 
     return (
         <header className={theme.theme === 'dark' ? 'header-dark' : 'header-light'}>
@@ -28,7 +31,7 @@ const Header : React.FC = React.memo(() => {
                     )
                 })}
             </ul>
-            <Link to={'/user'} className='icon-link__block'>
+            <Link to={currentUser.isAdmin ? '/admin' : 'user'} className='icon-link__block'>
                 <UserIcon
                     size='m'
                     color={theme.theme === 'dark' ? 'white' : 'black'}
