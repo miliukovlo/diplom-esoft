@@ -22,7 +22,6 @@ const MainContent: React.FC = () => {
                                 slogan={company.slogan}
                                 logo={company.logo}
                                 specialization={company.specialization}
-                                rating={company.rating}
                                 key={company.id}
                                 theme={theme.theme}
                             />

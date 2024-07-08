@@ -16,7 +16,6 @@ const defaultApartments = {
             haveBalcony: true,
             amount: 103,
             isSale: true,
-            rating: 4.78
         }
     ] as ApartmentInterface[]
 }

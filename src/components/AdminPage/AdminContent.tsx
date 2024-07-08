@@ -4,6 +4,8 @@ import AdminInformation from './AdminInformation/AdminInformation';
 import { useInput } from '../../Hooks/useInput';
 import UserConfig from '../Common/UserConfig/UserConfig';
 import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoInterface';
+import ProjectsList from '../CompanyPage/ProjectsBlock/ProjectsList';
+import AdminCreateProject from './AdminCreateProject/AdminCreateProject';
 
 interface AdminContentProps {
     email: string,
@@ -12,7 +14,8 @@ interface AdminContentProps {
     username: string,
     phone: string,
     image: string | undefined,
-    theme: string
+    theme: string,
+    companyId: string
 }
 
 const AdminContent: React.FC<AdminContentProps> = ({
@@ -22,7 +25,8 @@ const AdminContent: React.FC<AdminContentProps> = ({
     username,
     phone,
     image,
-    theme
+    theme,
+    companyId
 }) => {
 
     const inputsInfo: UserPageInputInfoInterface[] = [
@@ -86,6 +90,15 @@ const AdminContent: React.FC<AdminContentProps> = ({
                     phone={phone}
                     image={image}
                     theme={theme}
+            />
+            <ProjectsList
+                companyId={companyId}
+                theme={theme}
+                forWho='admin'
+            />
+            <AdminCreateProject
+            companyId={companyId}
+                theme={theme}
             />
             <UserConfig
                 inputsInfo={inputsInfo}

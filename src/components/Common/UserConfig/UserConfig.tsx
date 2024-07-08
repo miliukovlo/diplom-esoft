@@ -14,7 +14,7 @@ const UserConfig: React.FC<UserConfigProps> = React.memo(({
 }) => {
     return (
         <div className="user-content__config">
-        <h2 className="user-content__config-title">Настройка</h2>
+        <h2 className={theme === 'dark' ? "user-content__config-title light-title" : "user-content__config-title dark-title"}>Настройка</h2>
         <div className="user-content__config-block">
             <div className="config-block__parameter">
                 {inputsInfo.map((input) => {

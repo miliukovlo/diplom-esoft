@@ -25,7 +25,6 @@ const ProjectApartmentList: React.FC<ProjectApartmentListProps> = React.memo(({
                     return (
                         <ProjectApartmentBlock
                             cost={apartment.cost}
-                            rating={apartment.rating}
                             title={apartment.title}
                             description={apartment.description}
                             id={apartment.id}

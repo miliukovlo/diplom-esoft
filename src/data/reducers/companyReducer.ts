@@ -8,7 +8,6 @@ const defaultCompanies = {
             id: 'someCompany1',
             specialization: 'apartment',
             logo: 'https://e7.pngegg.com/pngimages/41/701/png-clipart-logo-graphic-design-graphy-grapher-logo-graphy-angle-text.png',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -16,7 +15,6 @@ const defaultCompanies = {
             id: 'someCompany2',
             specialization: 'apartment',
             logo: 'https://i.pinimg.com/originals/b9/05/3d/b9053d873e9f69058997913e0fffca2e.png',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -24,7 +22,6 @@ const defaultCompanies = {
             id: 'someCompany3',
             logo: 'https://i.pinimg.com/originals/f6/7a/3a/f67a3a261f0c952640f9c1d214d73e96.png',
             specialization: 'houses',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -32,7 +29,6 @@ const defaultCompanies = {
             id: 'someCompany4',
             specialization: 'apartment',
             logo: 'https://img.razrisyika.ru/kart/94/372802-logo-6.jpg',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -40,7 +36,6 @@ const defaultCompanies = {
             id: 'someCompany5',
             specialization: 'houses',
             logo: 'https://i.pinimg.com/originals/cc/7a/d3/cc7ad3d3ba4e80853304bee2dc3015da.png',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -48,7 +43,6 @@ const defaultCompanies = {
             id: 'someCompany6',
             specialization: 'apartment',
             logo: 'https://free-png.ru/wp-content/uploads/2020/10/Nike-logo-506c4872.png',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -56,7 +50,6 @@ const defaultCompanies = {
             id: 'someCompany7',
             specialization: 'apartment',
             logo: 'https://img.razrisyika.ru/kart/94/372802-logo-6.jpg',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -64,7 +57,6 @@ const defaultCompanies = {
             id: 'someCompany8',
             specialization: 'houses',
             logo: 'https://i.pinimg.com/originals/cc/7a/d3/cc7ad3d3ba4e80853304bee2dc3015da.png',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
         {
@@ -72,7 +64,6 @@ const defaultCompanies = {
             id: 'someCompany9',
             specialization: 'apartment',
             logo: 'https://free-png.ru/wp-content/uploads/2020/10/Nike-logo-506c4872.png',
-            rating: 0,
             slogan: 'Мы строим раз и на века!'
         },
     ] as CompanyInterface[]

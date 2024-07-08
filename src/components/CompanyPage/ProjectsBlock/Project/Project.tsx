@@ -4,7 +4,8 @@ import { ProjectInterface } from '../../../../Interfaces/ProjectInterface';
 import { Link } from 'react-router-dom';
 
 export interface ProjectPropsInterface extends ProjectInterface {
-    theme: string
+    theme: string,
+    forWho: string
 }
 
 const Project: React.FC<ProjectPropsInterface> = React.memo(({
@@ -13,9 +14,10 @@ const Project: React.FC<ProjectPropsInterface> = React.memo(({
     id,
     type,
     description,
-    rating,
     companyId,
-    theme
+    theme,
+    watch,
+    forWho
 }: ProjectPropsInterface) => {
 
     return (
@@ -28,7 +30,7 @@ const Project: React.FC<ProjectPropsInterface> = React.memo(({
                     <h2 className={theme === 'dark' ? "info-title light-title" : 'info-title dark-title'}>{title}</h2>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Тип проекта: {type === 'Жилой комплекс' ? 'Жилой комплекс' : 'Частные дома'}</p>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Описание: {description}</p>
-                    <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Рейтинг: {rating}</p>
+                    {forWho === 'admin' ? <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Просмотров: {watch}</p> : ''}
                 </div>
             </div>
         </Link>

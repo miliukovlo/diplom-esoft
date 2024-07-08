@@ -20,7 +20,6 @@ const AdminInformation: React.FC<AdminInformationProps> = React.memo(({
     phone,
 }) => {
     return (
-        <div>
             <div className="user-content__blocks">
             <div className="user-content__image-block">
                 <img src={image ? image : 'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} alt="Аватар пользователя" className={theme === 'dark' ? "user-image user-image-dark" : 'user-image user-image-light'} />
@@ -32,7 +31,6 @@ const AdminInformation: React.FC<AdminInformationProps> = React.memo(({
                 <p className={theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Почта: {email}</p>
                 <p className={theme === 'dark' ? "info-text light-color info-text__border-bottom-light" : 'info-text dark-color info-text__border-bottom-dark'}>Телефон: {phone}</p>
             </div>
-        </div>
         </div>
     );
 })

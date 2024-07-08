@@ -9,8 +9,8 @@ const defaultProjects = {
             id: 14277124,
             type: 'Жилой комплекс',
             description: 'Описание...',
-            rating: 5,
-            companyId: 'someCompany3'
+            companyId: 'someCompany3',
+            watch: 5000
         },
         {
             title: 'Название проекта',
@@ -18,8 +18,8 @@ const defaultProjects = {
             id: 14277122,
             type: 'Жилой комплекс',
             description: 'Описание...',
-            rating: 5,
-            companyId: 'someCompany3'
+            companyId: 'someCompany3',
+            watch: 15000
         },
         {
             title: 'Название проекта',
@@ -27,8 +27,8 @@ const defaultProjects = {
             id: 14277121,
             type: 'Жилой комплекс',
             description: 'Описание...',
-            rating: 5,
-            companyId: 'someCompany3'
+            companyId: 'someCompany3',
+            watch: 45000
         },
     ] as ProjectInterface[]
 }

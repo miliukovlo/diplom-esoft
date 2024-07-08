@@ -21,6 +21,7 @@ const AdminPage = React.memo(() => {
                 phone={currentUser.phone}
                 image={currentUser.image}
                 theme={theme.theme}
+                companyId={currentUser.companyId!}
             />
         </main>
     );

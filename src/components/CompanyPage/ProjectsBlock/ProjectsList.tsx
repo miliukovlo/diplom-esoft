@@ -6,12 +6,14 @@ import { ProjectInterface } from '../../../Interfaces/ProjectInterface';
 
 interface ProjectsListProps {
     companyId: string,
-    theme: string
+    theme: string,
+    forWho: string
 }
 
 const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
     companyId,
-    theme
+    theme,
+    forWho
 }: ProjectsListProps) => {
 
     const projectsOfCompany = useGetForCompany<ProjectInterface[]>('project', companyId)
@@ -22,7 +24,6 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
                     return (
                         <Project
                             title={project.title}
-                            rating={project.rating}
                             description={project.description}
                             poster={project.poster}
                             type={project.type}
@@ -30,6 +31,8 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
                             id={project.id}
                             key={project.id}
                             theme={theme}
+                            watch={project.watch}
+                            forWho={forWho}
                         />
                     )
                 })

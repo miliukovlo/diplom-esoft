@@ -15,7 +15,7 @@ const FavoriteContent: React.FC = () => {
             <div className={favoriteCompanies.length === 0 ? "companies-block-none" : "companies-block"}>
                 {
                     favoriteCompanies.length === 0 ?
-                    <h1 className='favorite-page__title'>Вы не добавили ни одну компанию в избранное!</h1>
+                    <h1 className={theme.theme === 'dark' ? 'favorite-page__title light-title' : 'favorite-page__title dark-title'}>Вы не добавили ни одну компанию в избранное!</h1>
                     :
                     favoriteCompanies.map((company: CompanyInterface) => {
                             return (
@@ -25,7 +25,6 @@ const FavoriteContent: React.FC = () => {
                                     slogan={company.slogan}
                                     logo={company.logo}
                                     specialization={company.specialization}
-                                    rating={company.rating}
                                     key={company.id}
                                     theme={theme.theme}
                                 />

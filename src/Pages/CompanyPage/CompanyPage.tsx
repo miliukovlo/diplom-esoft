@@ -20,7 +20,6 @@ const CompanyPage: React.FC = () => {
                 name={companyInformation.name}
                 slogan={companyInformation.slogan}
                 specialization={companyInformation.specialization}
-                rating={companyInformation.rating}
                 id={companyInformation.id}
                 theme={theme.theme}
             />

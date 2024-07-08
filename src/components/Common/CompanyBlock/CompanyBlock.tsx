@@ -14,7 +14,6 @@ const CompanyBlock: React.FC<CompanyBlockProps> = React.memo(({
     logo,
     specialization,
     slogan,
-    rating, 
     theme
 }: CompanyBlockProps) => {
 
@@ -32,14 +31,12 @@ const CompanyBlock: React.FC<CompanyBlockProps> = React.memo(({
                 'Квартиры' : 'Частные дома'
             }</p>
             <p className='company-text'>Описание: {slogan}</p>
-            <p className='company-text'>Рейтинг: {rating}</p>
             <HeartBlock
                 name={name}
                 id={id}
                 slogan={slogan}
                 logo={logo}
                 specialization={specialization}
-                rating={rating}
             />
         </div>
     );

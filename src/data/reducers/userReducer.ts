@@ -10,6 +10,7 @@ const defaultUser = {
         phone: '+79998886655',
         id: 1234534534,
         isAdmin: true,
+        companyId: 'someCompany3'
     }] as UserInterface[]
 }
 

@@ -21,13 +21,13 @@ const ProjectPage = () => {
         <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>
             <ProjectContent
                 title={currentProject.title}
-                rating={currentProject.rating}
                 poster={currentProject.poster}
                 description={currentProject.description}
                 id={currentProject.id}
                 type={currentProject.type}
                 companyId={currentProject.companyId}
                 theme={theme.theme}
+                watch={currentProject.watch}
             />
         </main>
     );

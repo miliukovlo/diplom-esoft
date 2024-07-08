@@ -14,7 +14,6 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     logo,
     name,
     slogan,
-    rating,
     specialization,
     id,
     theme
@@ -29,13 +28,13 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 logo={logo}
                 name={name}
                 slogan={slogan}
-                rating={rating}
                 specialization={specialization}
                 theme={theme}
             />
             <ProjectsList
                 companyId={id}
                 theme={theme}
+                forWho='user'
             />
             <CommentList
                 value={commentValue.value}

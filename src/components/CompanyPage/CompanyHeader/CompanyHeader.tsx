@@ -6,7 +6,6 @@ interface CompanyHeaderProps {
     name: string,
     slogan: string,
     specialization: string,
-    rating: number,
     theme: string
 }
 
@@ -14,7 +13,6 @@ const CompanyHeader: React.FC<CompanyHeaderProps> = React.memo(({
     logo,
     name,
     slogan,
-    rating,
     specialization,
     theme
 }: CompanyHeaderProps) => {
@@ -32,7 +30,6 @@ const CompanyHeader: React.FC<CompanyHeaderProps> = React.memo(({
                     <p className={theme === 'dark' ? 'common-text light-title' : 'common-text dark-title'}>Специализация компании: {specialization === 'apartment' ?
                 'Квартиры' : 'Частные дома'
             }</p>
-            <p className={theme === 'dark' ? 'common-text light-title' : 'common-text dark-title'}>Рейтинг: {rating}</p>
                 </div>
             </div>
         </div>

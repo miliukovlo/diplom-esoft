@@ -4,6 +4,6 @@ export interface ProjectInterface {
     id: number,
     type: string,
     description: string,
-    rating: number,
-    companyId: string
+    companyId: string,
+    watch: number
 }

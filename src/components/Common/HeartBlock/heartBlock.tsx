@@ -13,7 +13,6 @@ const HeartBlock: React.FC<CompanyInterface> = React.memo(({
     logo,
     specialization,
     slogan,
-    rating
 } : CompanyInterface) => {
     const favoriteCompanies: CompanyInterface[] = useSelector((state: RootState) => state.favorite.favoriteCompanies as CompanyInterface[])
     const isCompanyFavorite: boolean = favoriteCompanies.some((company: CompanyInterface) => company.id === id)
@@ -28,14 +27,13 @@ const HeartBlock: React.FC<CompanyInterface> = React.memo(({
                 logo: logo,
                 specialization: specialization,
                 slogan: slogan,
-                rating: rating, 
                 id: id
             }
             dispatch(addFavoriteCompany(newCompany))
         } else {
             dispatch(removeFavoriteCompany(id))
         }
-    }, [dispatch, id, isCompanyFavorite, name, specialization, slogan, rating, logo])
+    }, [dispatch, id, isCompanyFavorite, name, specialization, slogan, logo])
 
     return (
         <div className="heart-block">

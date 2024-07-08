@@ -30,7 +30,6 @@ const ApartmentPage = React.memo(() => {
                 poster={currentApartment.poster} 
                 description={currentApartment.description} 
                 type={currentApartment.type} 
-                rating={currentApartment.rating}
                 theme={theme.theme}
             />
         </main>

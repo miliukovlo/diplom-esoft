@@ -5,7 +5,6 @@ import './ProjectApartmentBlockStyle.css'
 interface ProjectApartmentBlockProps {
     title: string,
     cost: number,
-    rating: number,
     companyId: string,
     projectId: number,
     id: number,
@@ -18,7 +17,6 @@ interface ProjectApartmentBlockProps {
 const ProjectApartmentBlock: React.FC<ProjectApartmentBlockProps> = React.memo(({
     title,
     cost,
-    rating,
     companyId,
     projectId,
     id,
@@ -37,7 +35,6 @@ const ProjectApartmentBlock: React.FC<ProjectApartmentBlockProps> = React.memo((
                     <h2 className={theme === 'dark' ? "info-title light-title" : 'info-title dark-title'}>{title}</h2>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Тип проекта: {type === 'Квартира' ? 'Квартира' : 'Частный дом'}</p>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Описание: {description}</p>
-                    <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Рейтинг: {rating}</p>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Цена: {cost}</p>
                 </div>
             </div>

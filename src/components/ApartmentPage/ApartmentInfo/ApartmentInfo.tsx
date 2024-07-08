@@ -11,7 +11,6 @@ interface ApartmentInfoProps {
     amount: number,
     isSale: boolean,
     description: string,
-    rating: number,
     theme: string
 }
 
@@ -24,7 +23,6 @@ const ApartmentInfo: React.FC<ApartmentInfoProps> = React.memo(({
     amount,
     isSale,
     description,
-    rating,
     theme
 }) => {
 
@@ -39,7 +37,6 @@ const ApartmentInfo: React.FC<ApartmentInfoProps> = React.memo(({
             <p className={theme === 'dark' ? "info-text light-title info-text__border-bottom-light" : "info-text dark-title info-text__border-bottom-dark"}>Количество {type === 'Квартира' ? 'квартир' : 'домов'}: {amount}</p>
             <p className={theme === 'dark' ? "info-text light-title info-text__border-bottom-light" : "info-text dark-title info-text__border-bottom-dark"}>Продается: {isSale ? 'Да' : 'Нет'}</p>
             <p className={theme === 'dark' ? "info-text light-title info-text__border-bottom-light" : "info-text dark-title info-text__border-bottom-dark"}>Описание: {description}</p>
-            <p className={theme === 'dark' ? "info-text light-title info-text__border-bottom-light" : "info-text dark-title info-text__border-bottom-dark"}>Рейтинг: {rating}</p>
         </div>
     );
 })

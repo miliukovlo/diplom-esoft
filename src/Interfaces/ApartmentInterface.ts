@@ -12,5 +12,4 @@ export interface ApartmentInterface {
     poster: string,
     description: string,
     type: string,
-    rating: number
 }

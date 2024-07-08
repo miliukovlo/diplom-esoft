@@ -28,7 +28,6 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
     poster,
     description,
     type,
-    rating,
     theme
 }: ApartmentContentProps) => {
 
@@ -43,7 +42,6 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
                     />
                     <ApartmentInfo
                         type={type}
-                        rating={rating}
                         description={description}
                         cost={cost}
                         square={square}

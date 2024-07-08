@@ -3,6 +3,5 @@ export default interface CompanyInterface {
     id: string,
     specialization: string,
     logo: string,
-    rating: number,
     slogan: string
 }

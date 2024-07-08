@@ -18,7 +18,6 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
     id,
     description,
     type,
-    rating,
     companyId,
     theme
 }: ProjectContentProps) => {
@@ -33,7 +32,6 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
             />
             <ProjectInfo
                 type={type}
-                rating={rating}
                 description={description}
                 theme={theme}
             />
