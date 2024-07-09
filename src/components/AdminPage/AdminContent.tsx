@@ -6,9 +6,6 @@ import UserConfig from '../Common/UserConfig/UserConfig';
 import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoInterface';
 import ProjectsList from '../CompanyPage/ProjectsBlock/ProjectsList';
 import AdminCreateProject from './AdminCreateProject/AdminCreateProject';
-import AdminRequests from './AdminRequests/AdminRequests';
-import Button from '../UI/Button/Button';
-import { useNavigate } from 'react-router-dom';
 
 interface AdminContentProps {
     email: string,
@@ -35,7 +32,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
     const inputsInfo: UserPageInputInfoInterface[] = [
         {
             parameterTitle: 'Сменить имя',
-            id: 1,
             placeholderForOld: 'Введите старое имя',
             placeholderForNew: 'Введите новое имя',
             type: 'text',
@@ -44,7 +40,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
         },
         {
             parameterTitle: 'Сменить фамилию',
-            id: 2,
             placeholderForOld: 'Введите старую фамилию',
             placeholderForNew: 'Введите новую фамилию',
             type: 'text',
@@ -53,7 +48,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
         },
         {
             parameterTitle: 'Сменить никнейм',
-            id: 3,
             placeholderForOld: 'Введите старый никнейм',
             placeholderForNew: 'Введите новый никнейм',
             type: 'text',
@@ -62,7 +56,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
         },
         {
             parameterTitle: 'Сменить почту',
-            id: 4,
             placeholderForOld: 'Введите старую почту',
             placeholderForNew: 'Введите новую почту',
             type: 'text',
@@ -71,7 +64,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
         },
         {
             parameterTitle: 'Сменить телефон',
-            id: 5,
             placeholderForOld: 'Введите старый телефон',
             placeholderForNew: 'Введите новый телефон',
             type: 'text',
@@ -80,7 +72,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
         },
         {
             parameterTitle: 'Сменить пароль',
-            id: 6,
             placeholderForOld: 'Введите старый пароль',
             placeholderForNew: 'Введите новый пароль',
             type: 'text',
@@ -88,8 +79,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
             valueOfInputNew: useInput(''),
         },
     ]
-
-    const navigate = useNavigate()
 
     return (
         <div className='admin-content'>
@@ -107,10 +96,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
                 theme={theme}
                 forWho='admin'
             />
-            <AdminRequests
-                theme={theme}
-                companyId={companyId}
-            />
             <AdminCreateProject
             companyId={companyId}
                 theme={theme}
@@ -118,11 +103,6 @@ const AdminContent: React.FC<AdminContentProps> = ({
             <UserConfig
                 inputsInfo={inputsInfo}
                 theme={theme}
-            />
-            <Button
-                size='l'
-                text='Выйти'
-                onClick={() => {localStorage.removeItem('isLogin'); navigate('/')}}
             />
         </div>
     );

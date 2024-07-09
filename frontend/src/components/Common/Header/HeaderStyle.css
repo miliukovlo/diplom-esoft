@@ -1,0 +1,83 @@
+.header-dark {
+    transition-duration: 0.4s;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(19, 16, 16);
+}
+.header-light {
+    transition-duration: 0.4s;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(199, 199, 199);
+}
+.header-list {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+.element-link-dark {
+    color: rgb(221,221,221);
+    text-decoration: none;
+    transition-duration: 0.4s;
+    border-bottom: 2px solid transparent;
+    font-size: 2vh;
+    padding: 5px 10px;
+}
+.element-link-dark:hover {
+    border-bottom: 2px solid rgb(221,221,221);
+}
+.element-link-dark:visited {
+    color: rgb(221,221,221);
+}
+.element-link-light {
+    transition-duration: 0.4s;
+    color: rgb(19,16,16);
+    text-decoration: none;
+    transition-duration: 0.4s;
+    border-bottom: 2px solid transparent;
+    font-size: 2vh;
+    padding: 5px 10px;
+}
+.element-link-light:hover {
+    border-bottom: 2px solid rgb(19,16,16);
+}
+.element-link-light:visited {
+    color: rgb(19,16,16);
+}
+.icon-link__block {
+    transition-duration: 0.4s;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-link-dark {
+    transition-duration: 0.4s;
+    padding: 5px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition-duration: 0.6s;
+}
+.icon-link-light {
+    transition-duration: 0.4s;
+    padding: 5px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition-duration: 0.6s;
+}
+.icon-link-dark:hover {
+    border: 2px solid rgb(221,221,221);
+}
+.icon-link-light:hover {
+    border: 2px solid rgb(19,16,16);
+}

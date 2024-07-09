@@ -20,7 +20,6 @@ const ProjectPage = () => {
     return (
         <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>
             <ProjectContent
-                posterUrl={currentProject.posterUrl}
                 title={currentProject.title}
                 poster={currentProject.poster}
                 description={currentProject.description}

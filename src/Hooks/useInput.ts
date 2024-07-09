@@ -6,5 +6,5 @@ export const useInput = <T>(currentValue: T)  => {
     const onChange = (e : ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value as T)
     }
-        return {value, onChange, setValue}
+        return {value, onChange}
 }

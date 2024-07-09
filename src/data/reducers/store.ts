@@ -6,7 +6,6 @@ import { projectsReducer } from "./ProjectsReducer";
 import { apartmentReducer } from "./apartmentReducer";
 import { userReducer } from "./userReducer";
 import { themeReducer } from "./ThemeReducer";
-import { requestReducer } from "./requestReducer";
 
 const rootReducer = combineReducers({
     companies: companiesReducer,
@@ -15,8 +14,7 @@ const rootReducer = combineReducers({
     projects: projectsReducer,
     apartments: apartmentReducer,
     user: userReducer,
-    theme: themeReducer,
-    requests: requestReducer
+    theme: themeReducer
 })
 
 export const store = createStore(rootReducer)

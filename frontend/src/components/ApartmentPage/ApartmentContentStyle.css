@@ -1,0 +1,30 @@
+.apartment-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.apartment-content__title {
+    font-size: 2vh;
+    color: rgb(221,221,221);
+    width: 100%;
+    text-align: center;
+}
+.apartment-content__info {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+    min-height: 70vh;
+    margin: 20px;
+}
+.apartment-info__dark {
+    background-color: rgb(19,16,16);
+}
+.apartment-info__light {
+    background-color: rgb(199,199,199);
+}

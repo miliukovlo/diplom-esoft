@@ -5,28 +5,28 @@ const defaultProjects = {
     projects: [
         {
             title: 'Название проекта',
+            poster: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
             id: 14277124,
             type: 'Жилой комплекс',
             description: 'Описание...',
-            posterUrl: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
             companyId: 'someCompany3',
             watch: 5000
         },
         {
             title: 'Название проекта',
+            poster: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
             id: 14277122,
             type: 'Жилой комплекс',
             description: 'Описание...',
-            posterUrl: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
             companyId: 'someCompany3',
             watch: 15000
         },
         {
             title: 'Название проекта',
+            poster: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
             id: 14277121,
             type: 'Жилой комплекс',
             description: 'Описание...',
-            posterUrl: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
             companyId: 'someCompany3',
             watch: 45000
         },

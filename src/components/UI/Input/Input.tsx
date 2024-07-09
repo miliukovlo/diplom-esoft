@@ -7,10 +7,10 @@ interface InputProps {
     value: StrOrNumber,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     size: string,
-    placeholder?: string
+    placeholder: string
 }
 
-const Input: React.FC<InputProps> = React.memo(({
+const Input: React.FC<InputProps> = ({
     type,
     value,
     onChange,
@@ -29,6 +29,6 @@ const Input: React.FC<InputProps> = React.memo(({
             placeholder={placeholder}
         />
     );
-})
+}
 
 export default Input;

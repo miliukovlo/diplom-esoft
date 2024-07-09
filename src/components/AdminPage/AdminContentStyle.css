@@ -6,36 +6,3 @@
     justify-content: center;
     flex-direction: column;
 }
-.request-block {
-    height: 50%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.request-block__dark {
-    width: 100%;
-    height: 50%;
-    background-color: rgb(19,16,16);
-    border: 2px solid rgb(221,221,221);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-    border-radius: 12px;    
-}
-.request-block__light {
-    width: 100%;
-    height: 50%;
-    background-color: rgb(221,221,221);
-    padding: 5px;
-    border-radius: 12px;
-    border: 2px solid rgb(19,16,16);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;    
-}
-.requests-list {
-    flex-direction: column !important;
-}

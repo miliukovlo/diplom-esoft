@@ -1,7 +1,6 @@
 export interface ProjectInterface {
     title: string,
-    poster: File | undefined | Blob | MediaSource,
-    posterUrl: string | undefined,
+    poster: string,
     id: number,
     type: string,
     description: string,

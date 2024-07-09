@@ -1,0 +1,22 @@
+.heart-block {
+    height: 5%;
+    width: 100%;
+}
+.favorite-button {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+}
+.favorite-image {
+    height: 100%;
+    width: 100%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.favorite-image:hover {
+    fill: red;
+}
+.favorite-image__true {
+    fill: red
+}

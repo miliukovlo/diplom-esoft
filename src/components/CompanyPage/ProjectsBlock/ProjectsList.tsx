@@ -24,7 +24,6 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
                     return (
                         <Project
                             title={project.title}
-                            posterUrl={project.posterUrl}
                             description={project.description}
                             poster={project.poster}
                             type={project.type}

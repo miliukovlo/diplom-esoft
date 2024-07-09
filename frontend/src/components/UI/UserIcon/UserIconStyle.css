@@ -1,0 +1,12 @@
+.header-icon__size-l {
+    width: 60px;
+    height: 60px;
+    stroke: rgb(221,221,221) !important;
+    fill: rgb(221, 221, 221);
+}
+.header-icon__size-m {
+    width: 40px;
+    height: 40px;
+    stroke: rgb(221, 221, 221) !important;
+    fill: rgb(221, 221, 221);
+}

@@ -1,0 +1,56 @@
+.size-button {
+    margin: 20px;
+    background-color: transparent;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: rgb(221, 221, 221);
+    background-color: rgb(19,16,16);
+    border: 1px solid transparent;
+}
+.size-button:hover {
+    border: 1px solid rgba(221,221,221,0.7);
+    background-color: rgb(29, 27, 27);
+    color: white;
+}
+
+.size-button-m {
+    width: 40%;
+    height: 15%;
+    min-height: 50px;
+    text-indent: 10px;
+    border: 1px solid rgb(29, 27, 27);
+    border-radius: 16px;
+    color: rgb(221, 221, 221);
+    outline: 0;
+}
+
+.size-button-l {
+    width: 50%;
+    height: 20%;
+    min-height: 50px;
+    text-indent: 10px;
+    border: 1px solid rgb(29, 27, 27);
+    border-radius: 20px;
+    color: rgb(221, 221, 221);
+    outline: 0;
+}
+.size-button-xl {
+    width: 75%;
+    height: 20%;
+    min-height: 50px;
+    text-indent: 10px;
+    border: 1px solid rgb(29, 27, 27);
+    border-radius: 20px;
+    color: rgb(221, 221, 221);
+    outline: 0;
+}
+.size-button-default {
+    width: 20%;
+    height: 20%;
+    min-height: 50px;
+    text-indent: 10px;
+    border: 1px solid rgb(29, 27, 27);
+    color: rgb(221, 221, 221);
+    border-radius: 20px;
+    outline: 0;
+}
