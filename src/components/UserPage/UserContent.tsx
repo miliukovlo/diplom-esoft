@@ -8,6 +8,8 @@ import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoIn
 import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 import UserInformation from './UserInformation/UserInformation';
 import UserConfig from '../Common/UserConfig/UserConfig';
+import Button from '../UI/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 
 const UserContent = React.memo(() => {
@@ -16,11 +18,14 @@ const UserContent = React.memo(() => {
 
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
+    const navigate = useNavigate()
+
     const user = getUser[0]
 
     const inputsInfo: UserPageInputInfoInterface[] = [
         {
             parameterTitle: 'Сменить имя',
+            id: 1,
             placeholderForOld: 'Введите старое имя',
             placeholderForNew: 'Введите новое имя',
             type: 'text',
@@ -29,6 +34,7 @@ const UserContent = React.memo(() => {
         },
         {
             parameterTitle: 'Сменить фамилию',
+            id: 2,
             placeholderForOld: 'Введите старую фамилию',
             placeholderForNew: 'Введите новую фамилию',
             type: 'text',
@@ -37,6 +43,7 @@ const UserContent = React.memo(() => {
         },
         {
             parameterTitle: 'Сменить никнейм',
+            id: 3,
             placeholderForOld: 'Введите старый никнейм',
             placeholderForNew: 'Введите новый никнейм',
             type: 'text',
@@ -45,6 +52,7 @@ const UserContent = React.memo(() => {
         },
         {
             parameterTitle: 'Сменить почту',
+            id: 4,
             placeholderForOld: 'Введите старую почту',
             placeholderForNew: 'Введите новую почту',
             type: 'text',
@@ -53,6 +61,7 @@ const UserContent = React.memo(() => {
         },
         {
             parameterTitle: 'Сменить телефон',
+            id: 5,
             placeholderForOld: 'Введите старый телефон',
             placeholderForNew: 'Введите новый телефон',
             type: 'text',
@@ -61,6 +70,7 @@ const UserContent = React.memo(() => {
         },
         {
             parameterTitle: 'Сменить пароль',
+            id: 6,
             placeholderForOld: 'Введите старый пароль',
             placeholderForNew: 'Введите новый пароль',
             type: 'text',
@@ -83,6 +93,11 @@ const UserContent = React.memo(() => {
             <UserConfig
                 theme={theme.theme}
                 inputsInfo={inputsInfo}
+            />
+            <Button
+                size='l'
+                text='Выйти'
+                onClick={() => {localStorage.removeItem('isLogin'); navigate('/')}}
             />
         </div>
     );

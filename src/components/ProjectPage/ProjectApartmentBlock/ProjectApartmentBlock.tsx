@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectApartmentBlockStyle.css'
+import { NumberToCurrencyFormat } from '../../../Hooks/NumberToCurrencyFormat';
 
 interface ProjectApartmentBlockProps {
     title: string,
@@ -25,6 +26,9 @@ const ProjectApartmentBlock: React.FC<ProjectApartmentBlockProps> = React.memo((
     description,
     theme
 }: ProjectApartmentBlockProps) => {
+
+    const currentCost = NumberToCurrencyFormat(cost)
+
     return (
         <Link to={`/company/${companyId}/project/${projectId}/apartment/${id}`} className='project-block__link'>
             <div className={theme === 'dark' ? 'project-block project-block-dark' : 'project-block project-block-light'}>
@@ -35,7 +39,7 @@ const ProjectApartmentBlock: React.FC<ProjectApartmentBlockProps> = React.memo((
                     <h2 className={theme === 'dark' ? "info-title light-title" : 'info-title dark-title'}>{title}</h2>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Тип проекта: {type === 'Квартира' ? 'Квартира' : 'Частный дом'}</p>
                     <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Описание: {description}</p>
-                    <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Цена: {cost}</p>
+                    <p className={theme === 'dark' ? "info-text light-title" : 'info-text dark-title'}>Цена: {currentCost}</p>
                 </div>
             </div>
         </Link>

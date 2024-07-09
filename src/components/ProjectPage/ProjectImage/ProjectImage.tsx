@@ -2,15 +2,15 @@ import React from 'react';
 import './ProjectImageStyle.css'
 
 interface ProjectImageProps {
-    poster: string
+    posterUrl: string | undefined
 }
 
 const ProjectImage: React.FC<ProjectImageProps> = React.memo(({
-    poster
+    posterUrl
 }: ProjectImageProps) => {
     return (
         <div className="project-content__image-block">
-            <img src={poster} alt="Постер проекта" className='project-content__image' />
+            <img src={posterUrl} alt="Постер проекта" className='project-content__image' />
         </div>
     );
 })

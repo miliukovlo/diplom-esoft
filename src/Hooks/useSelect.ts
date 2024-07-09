@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from "react"
 
-export const useInput = <T>(currentValue: T)  => {
+export const useSelect = <T>(currentValue: T)  => {
     const [value, setValue] = useState<T>(currentValue)
 
-    const onChange = (e : ChangeEvent<HTMLInputElement>) => {
+    const onChange = (e : ChangeEvent<HTMLSelectElement>) => {
         setValue(e.target.value as T)
     }
         return {value, onChange, setValue}

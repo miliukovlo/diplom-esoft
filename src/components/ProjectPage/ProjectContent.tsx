@@ -13,10 +13,10 @@ export interface ProjectContentProps extends ProjectInterface {
 }
 
 const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
-    poster,
     title,
     id,
     description,
+    posterUrl,
     type,
     companyId,
     theme
@@ -28,7 +28,7 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
         <div className='project-content'>
             <h1 className={theme === 'dark' ? 'project-content__title light-title' : 'project-content__title dark-title'}>{title}</h1>
             <ProjectImage
-                poster={poster}
+                posterUrl={posterUrl}
             />
             <ProjectInfo
                 type={type}

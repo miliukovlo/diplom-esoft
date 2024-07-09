@@ -20,6 +20,7 @@ const UserConfig: React.FC<UserConfigProps> = React.memo(({
                 {inputsInfo.map((input) => {
                     return (
                         <UserParameter
+                            key={input.id}
                             parameterTitle={input.parameterTitle}
                             placeholderForOld={input.placeholderForOld}
                             placeholderForNew={input.placeholderForNew}

@@ -1,0 +1,24 @@
+.apartment-add__block {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.apartment-info__text-light {
+    font-size: 2vh;
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+    border-bottom: 2px solid rgb(221,221,221);
+    color: rgb(221,221,221);
+}
+.apartment-info__text-dark {
+    font-size: 2vh;
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+    border-bottom: 2px solid rgb(19,16,16);
+    color: rgb(19,16,16);
+}

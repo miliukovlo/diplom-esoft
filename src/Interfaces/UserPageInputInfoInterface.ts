@@ -3,6 +3,7 @@ import { ChangeEvent } from "react";
 export interface UserPageInputInfoInterface {
     parameterTitle: string,
     placeholderForOld: string,
+    id: number,
     placeholderForNew: string,
     type: string,
     valueOfInputOld: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; },

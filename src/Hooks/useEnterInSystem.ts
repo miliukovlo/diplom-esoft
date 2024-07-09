@@ -7,6 +7,7 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
             setError(false);
             navigate('/main')
             console.log(`Зашел! ${userName} ${password}`);
+            localStorage.setItem('isLogin', 'true')
         } else {
             setError(true);
         }
