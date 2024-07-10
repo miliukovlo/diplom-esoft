@@ -24,12 +24,15 @@ const Router : React.FC = () => {
         if (localStorage.getItem('isLogin')) {
             setIsLogin(true)
         }
+        console.log(getUser)
     }, [setIsLogin])
 
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<MainLayout/>}>
+                    <Route path='/' element={<LoginPage/>}/>
+                    <Route path='*' element={<NotFoundPage/>}/>
                     <Route path='/main' element={<MainPage/>}/>
                     <Route path='/favorite' element={<FavoritePage/>}/>
                     <Route path='/company/:id' element={<CompanyPage/>}/>
@@ -44,8 +47,6 @@ const Router : React.FC = () => {
                         :
                         <Route path='/user' element={<UserPage/>}/>
                     }
-                    <Route path='/' element={<LoginPage/>}/>
-                    <Route path='*' element={<NotFoundPage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

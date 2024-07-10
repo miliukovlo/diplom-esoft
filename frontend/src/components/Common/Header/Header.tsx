@@ -20,23 +20,29 @@ const Header : React.FC = React.memo(() => {
 
     return (
         <header className={theme.theme === 'dark' ? 'header-dark' : 'header-light'}>
-            <ul className='header-list'>
-                {links.map(el => {
-                    return(
-                        <li key={el.id} className={theme.theme === 'dark' ? 'list-element-dark' : 'list-element-light'}>
-                            <Link className={theme.theme === 'dark' ? 'element-link-dark' : 'element-link-light'} to={el.link}>
-                                {el.title}
-                            </Link>
-                        </li>
-                    )
-                })}
-            </ul>
-            <Link to={currentUser.isAdmin ? '/admin' : 'user'} className='icon-link__block'>
-                <UserIcon
-                    size='m'
-                    color={theme.theme === 'dark' ? 'white' : 'black'}
-                />
-            </Link>
+            {currentUser.id !== null ?
+                <>
+                    <ul className='header-list'>
+                    {links.map(el => {
+                        return(
+                            <li key={el.id} className={theme.theme === 'dark' ? 'list-element-dark' : 'list-element-light'}>
+                                <Link className={theme.theme === 'dark' ? 'element-link-dark' : 'element-link-light'} to={el.link}>
+                                    {el.title}
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <Link to={currentUser.isAdmin ? '/admin' : 'user'} className='icon-link__block'>
+                    <UserIcon
+                        size='m'
+                        color={theme.theme === 'dark' ? 'white' : 'black'}
+                    />
+                </Link>
+            </>
+            :
+            <h2 className={theme.theme === 'dark' ? "user-content__config-title light-title" : "user-content__config-title dark-title"}>Страница входа</h2>
+            }
         </header>
     );
 })

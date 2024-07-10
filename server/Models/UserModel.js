@@ -68,11 +68,10 @@ class UserModel {
         return await this.UserScheme.sync()
     }
 
-    async getUserByUsername(username, password) {
+    async getUserByUsername(username) {
         const user = await this.UserScheme.findOne({
             where: {
-                username: username,
-                user_password: password
+                username: username
             }
         })
         if (!user) {

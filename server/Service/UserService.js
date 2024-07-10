@@ -10,9 +10,9 @@ class UserService {
             return e
         }
     }
-    async getUserByUsername(username, password) {
+    async getUserByUsername(username) {
         try {
-            const user = await this.userModel.getUserByUsername(username, password)
+            const user = await this.userModel.getUserByUsername(username)
             return user
         } catch (e) {
             return e

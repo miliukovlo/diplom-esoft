@@ -9,8 +9,8 @@ class UserController {
 
     getUserByUsername = async (req, res) => {
         try {
-            const {username, password} = req.body
-            const user = await this.userService.getUserByUsername(username, password)
+            const {username} = req.params
+            const user = await this.userService.getUserByUsername(username)
             if (!user || user.length === 0) {
                 res.status(404).json({error: 'Пользователя нет в системе!'})
                 return

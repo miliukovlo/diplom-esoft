@@ -14,12 +14,12 @@ const AdminPage = React.memo(() => {
     return (
         <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>
             <AdminContent
-                email={currentUser.email}
-                firstName={currentUser.firstName}
-                lastName={currentUser.lastName}
-                username={currentUser.username}
-                phone={currentUser.phone}
-                image={currentUser.image}
+                email={currentUser.email!}
+                firstName={currentUser.firstName!}
+                lastName={currentUser.lastName!}
+                username={currentUser.username!}
+                phone={currentUser.phone!}
+                image={currentUser.image!}
                 theme={theme.theme}
                 companyId={currentUser.companyId!}
             />

@@ -83,12 +83,12 @@ const UserContent = React.memo(() => {
         <div className='user-content'>
             <UserInformation
                 theme={theme.theme}
-                firstName={user.firstName}
-                lastName={user.lastName}
-                email={user.email}
-                phone={user.phone}
-                image={user.image}
-                username={user.username}
+                firstName={user.firstName!}
+                lastName={user.lastName!}
+                email={user.email!}
+                phone={user.phone!}
+                image={user.image!}
+                username={user.username!}
             />
             <UserConfig
                 theme={theme.theme}
