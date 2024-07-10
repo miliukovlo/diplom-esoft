@@ -19,13 +19,6 @@ import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
 const Router : React.FC = () => {
 
     const getUser = useSelector((state : RootState) => state.user.user as UserInterface[])
-    const [isLogin, setIsLogin] = useState<boolean>(false)
-    useEffect(() => {
-        if (localStorage.getItem('isLogin')) {
-            setIsLogin(true)
-        }
-        console.log(getUser)
-    }, [setIsLogin])
 
     return (
         <BrowserRouter>

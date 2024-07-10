@@ -19,7 +19,6 @@ const useRegisterInSystem = (
 ) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const id = GetId('user')
     const register = async () => {
         try {
             if (
@@ -60,6 +59,7 @@ const useRegisterInSystem = (
                     setError(false);
                     navigate('/main')
                     localStorage.setItem('isLogin', 'true')
+                    localStorage.setItem('userName', `${userData.username}`)
                 } else {
                     setError(true)
                 }

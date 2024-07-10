@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../data/reducers/userReducer";
@@ -20,6 +19,7 @@ const useExitFromSystem = () => {
                 theme: null
             }))
             navigate('/')
+            localStorage.removeItem('userName')
             localStorage.removeItem('isLogin')
         } catch (e) {
             return e

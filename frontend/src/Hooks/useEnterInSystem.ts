@@ -28,6 +28,7 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
                     setError(false);
                     navigate('/main')
                     localStorage.setItem('isLogin', 'true')
+                    localStorage.setItem('userName', `${userData.username}`)
                 } else {
                     setError(true)
                 }
