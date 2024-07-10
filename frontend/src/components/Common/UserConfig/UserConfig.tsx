@@ -12,6 +12,7 @@ const UserConfig: React.FC<UserConfigProps> = React.memo(({
     inputsInfo,
     theme
 }) => {
+
     return (
         <div className="user-content__config">
         <h2 className={theme === 'dark' ? "user-content__config-title light-title" : "user-content__config-title dark-title"}>Настройка</h2>
@@ -22,12 +23,9 @@ const UserConfig: React.FC<UserConfigProps> = React.memo(({
                         <UserParameter
                             key={input.id}
                             parameterTitle={input.parameterTitle}
-                            placeholderForOld={input.placeholderForOld}
                             placeholderForNew={input.placeholderForNew}
                             type={input.type}
-                            valueOld={input.valueOfInputOld.value}
                             valueNew={input.valueOfInputNew.value}
-                            onChangeForOld={input.valueOfInputOld.onChange}
                             onChangeForNew={input.valueOfInputNew.onChange}
                             theme={theme}
                         />

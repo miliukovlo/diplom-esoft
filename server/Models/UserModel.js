@@ -107,6 +107,35 @@ class UserModel {
         })
         return user
     }
+    async updateUser(
+        username,
+        {        
+        first_name,
+        last_name,
+        email,
+        phone,
+        image_url,
+        password,
+        theme
+    }
+    ) {
+        const user = await this.UserScheme.findOne({
+            where: {
+                username: username
+            }
+        })
+        user.first_name = first_name ? first_name : user.first_name
+        user.last_name = last_name ? last_name : user.last_name
+        user.email = email ? email : user.email
+        user.phone = phone ? phone : user.phone
+        user.image_url = image_url ? image_url : user.image_url
+        user.password = password ? password : user.password
+        user.theme = theme ? theme : user.theme
+
+        await user.save();
+
+        return user
+    }
 }
 
 module.exports = new UserModel()

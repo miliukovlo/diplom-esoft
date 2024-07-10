@@ -57,6 +57,14 @@ class UserService {
             return e
         }
     }
+    async updateUser(username, body) {
+        try {
+            const user = await this.userModel.updateUser(username, body)
+            return user
+        } catch (e) {
+            return e
+        }
+    }
 }
 
 module.exports = UserService

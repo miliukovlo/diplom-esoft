@@ -6,6 +6,7 @@ module.exports = (userController) => {
 
     router.get('/', userController.getAllUsers)
     router.get('/:username', userController.getUserByUsername)
+    router.put('/:username', userController.updateUser)
     router.post('/', userController.createUser)
 
     return router

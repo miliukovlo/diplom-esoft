@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useImageHandler } from '../../../Hooks/useImage';
 
 interface UserInformationProps {
-    image: string | undefined,
+    image: string | undefined ,
     theme: string,
     firstName: string,
     lastName: string,
@@ -31,11 +31,12 @@ const UserInformation: React.FC<UserInformationProps> = React.memo(({
                 id='image-of-user' 
                 name='image-of-user' 
                 style={{ display: 'none' }}
+                accept='image/png, image/jpeg'
                 onChange={avatar.handleImageChange}
             />
             <label htmlFor="image-of-user" className="image-button">
                 <img 
-                    src={image ? image : 'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} 
+                    src={'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} 
                     alt="Аватар пользователя" 
                     className={theme === 'dark' ? "user-image user-image-dark" : 'user-image user-image-light'} 
                 />

@@ -7,5 +7,6 @@ export interface UserInterface {
     isAdmin: boolean,
     companyId?: string | null,
     image?: string | null,
-    theme?: string | null
+    theme?: string | null,
+    password: string | null
 }

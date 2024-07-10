@@ -54,6 +54,7 @@ const useRegisterInSystem = (
                         isAdmin: userData.is_admin,
                         companyId: userData.company_id,
                         image: userData.image_url,
+                        password: userData.password,
                         theme: userData.theme
                     }))
                     setError(false);

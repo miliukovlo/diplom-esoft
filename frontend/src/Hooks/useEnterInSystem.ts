@@ -23,7 +23,8 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
                         isAdmin: userData.is_admin,
                         companyId: userData.company_id,
                         image: userData.image_url,
-                        theme: userData.theme
+                        theme: userData.theme,
+                        password: userData.password
                     }))
                     setError(false);
                     navigate('/main')

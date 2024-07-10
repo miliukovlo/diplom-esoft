@@ -16,7 +16,8 @@ const useExitFromSystem = () => {
                 isAdmin: false,
                 companyId: null,
                 image: null,
-                theme: null
+                theme: null,
+                password: null
             }))
             navigate('/')
             localStorage.removeItem('userName')

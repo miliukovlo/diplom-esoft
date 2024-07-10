@@ -9,7 +9,8 @@ import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 import UserInformation from './UserInformation/UserInformation';
 import UserConfig from '../Common/UserConfig/UserConfig';
 import Button from '../UI/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import useExitFromSystem from '../../Hooks/useExitFromSystem';
 
 
 const UserContent = React.memo(() => {
@@ -18,63 +19,59 @@ const UserContent = React.memo(() => {
 
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
-    const navigate = useNavigate()
+    const exit = useExitFromSystem()
 
     const user = getUser[0]
+
+    const handleChange = async () => {
+        try {
+            axios.put(`http://localhost:3760/api/users/${getUser[0].username}`, {
+                first_name: inputsInfo[0].valueOfInputNew.value === '' ? getUser[0].firstName : inputsInfo[0].valueOfInputNew.value,
+                last_name: inputsInfo[1].valueOfInputNew.value === '' ? getUser[0].lastName : inputsInfo[1].valueOfInputNew.value,
+                email: inputsInfo[2].valueOfInputNew.value === '' ? getUser[0].email : inputsInfo[2].valueOfInputNew.value,
+                phone: inputsInfo[3].valueOfInputNew.value === '' ? getUser[0].phone : inputsInfo[3].valueOfInputNew.value,
+                password: inputsInfo[4].valueOfInputNew.value === '' ? getUser[0].password : inputsInfo[4].valueOfInputNew.value,
+                theme: theme.theme
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     const inputsInfo: UserPageInputInfoInterface[] = [
         {
             parameterTitle: 'Сменить имя',
             id: 1,
-            placeholderForOld: 'Введите старое имя',
             placeholderForNew: 'Введите новое имя',
             type: 'text',
-            valueOfInputOld: useInput(''),
             valueOfInputNew: useInput(''),
         },
         {
             parameterTitle: 'Сменить фамилию',
             id: 2,
-            placeholderForOld: 'Введите старую фамилию',
             placeholderForNew: 'Введите новую фамилию',
             type: 'text',
-            valueOfInputOld: useInput(''),
-            valueOfInputNew: useInput(''),
-        },
-        {
-            parameterTitle: 'Сменить никнейм',
-            id: 3,
-            placeholderForOld: 'Введите старый никнейм',
-            placeholderForNew: 'Введите новый никнейм',
-            type: 'text',
-            valueOfInputOld: useInput(''),
             valueOfInputNew: useInput(''),
         },
         {
             parameterTitle: 'Сменить почту',
             id: 4,
-            placeholderForOld: 'Введите старую почту',
             placeholderForNew: 'Введите новую почту',
             type: 'text',
-            valueOfInputOld: useInput(''),
             valueOfInputNew: useInput(''),
         },
         {
             parameterTitle: 'Сменить телефон',
             id: 5,
-            placeholderForOld: 'Введите старый телефон',
             placeholderForNew: 'Введите новый телефон',
             type: 'text',
-            valueOfInputOld: useInput(''),
             valueOfInputNew: useInput(''),
         },
         {
             parameterTitle: 'Сменить пароль',
             id: 6,
-            placeholderForOld: 'Введите старый пароль',
             placeholderForNew: 'Введите новый пароль',
             type: 'text',
-            valueOfInputOld: useInput(''),
             valueOfInputNew: useInput(''),
         },
     ]
@@ -96,8 +93,13 @@ const UserContent = React.memo(() => {
             />
             <Button
                 size='l'
+                text='Сохранить'
+                onClick={() => {handleChange()}}
+            />
+            <Button
+                size='l'
                 text='Выйти'
-                onClick={() => {localStorage.removeItem('isLogin'); navigate('/')}}
+                onClick={() => {exit()}}
             />
         </div>
     );
