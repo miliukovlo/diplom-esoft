@@ -8,7 +8,6 @@ const defaultRequest = {
         username: 'someName',
         email: 'example@mail.ru',
         phone: '+79998886655',
-        userId: 1234534534,
         isAdmin: true,
         companyId: 'someCompany3',
         companySend: 'someCompany3',

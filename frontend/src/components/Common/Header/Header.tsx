@@ -20,7 +20,7 @@ const Header : React.FC = React.memo(() => {
 
     return (
         <header className={theme.theme === 'dark' ? 'header-dark' : 'header-light'}>
-            {currentUser.id !== null ?
+            {currentUser.username !== null ?
                 <>
                     <ul className='header-list'>
                     {links.map(el => {

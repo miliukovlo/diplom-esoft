@@ -7,6 +7,19 @@ class UserController {
         return await this.userService.syncModel()
     }
 
+    getAllUsers = async (req, res) => {
+        try {
+            const users = await this.userService.getAllUsers()
+            if (!users || users.length === 0) {
+                res.status(404).json({error: 'Пользователя нет в системе!'})
+                return
+            }
+            res.status(200).json(users)
+        }catch (error) {
+            res.status(500).json({error: error.message})
+        }
+    }
+
     getUserByUsername = async (req, res) => {
         try {
             const {username} = req.params

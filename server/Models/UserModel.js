@@ -17,7 +17,8 @@ class UserModel {
                 username: {
                     type: DataTypes.STRING,
                     allowNull: false,
-                    unique: false
+                    unique: false,
+                    primaryKey: true
                 },
                 email: {
                     type: DataTypes.STRING,
@@ -28,12 +29,6 @@ class UserModel {
                     type: DataTypes.STRING,
                     allowNull: false,
                     unique: false
-                },
-                user_id: {
-                    type: DataTypes.INTEGER,
-                    allowNull: false,
-                    unique: true,
-                    primaryKey: true
                 },
                 is_admin: {
                     type: DataTypes.BOOLEAN,
@@ -68,6 +63,14 @@ class UserModel {
         return await this.UserScheme.sync()
     }
 
+    async getAllUsers() {
+        const users = await this.UserScheme.findAll()
+        if (!users) {
+            return {error: 'Не удалось найти пользователей'}
+        }
+        return users
+    }
+
     async getUserByUsername(username) {
         const user = await this.UserScheme.findOne({
             where: {
@@ -85,7 +88,6 @@ class UserModel {
         username,
         email,
         phone,
-        user_id,
         is_admin,
         company_id,
         image_url,
@@ -97,7 +99,6 @@ class UserModel {
             username: username,
             email: email,
             phone: phone,
-            user_id: user_id,
             is_admin: is_admin,
             company_id: company_id,
             image_url: image_url,
@@ -109,4 +110,5 @@ class UserModel {
 }
 
 module.exports = new UserModel()
+
 

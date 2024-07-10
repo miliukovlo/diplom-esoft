@@ -20,7 +20,6 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
                         username: userData.username,
                         email: userData.email,
                         phone: userData.phone,
-                        id: userData.user_id,
                         isAdmin: userData.is_admin,
                         companyId: userData.company_id,
                         image: userData.image_url,

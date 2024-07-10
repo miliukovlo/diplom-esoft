@@ -14,7 +14,6 @@ const useExitFromSystem = () => {
                 username: null,
                 email: null,
                 phone: null,
-                id: null,
                 isAdmin: false,
                 companyId: null,
                 image: null,

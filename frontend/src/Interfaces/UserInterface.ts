@@ -4,7 +4,6 @@ export interface UserInterface {
     username: string | null,
     email: string | null,
     phone: string | null,
-    id: number | null | null,
     isAdmin: boolean,
     companyId?: string | null,
     image?: string | null,

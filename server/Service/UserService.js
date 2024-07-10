@@ -10,6 +10,16 @@ class UserService {
             return e
         }
     }
+
+    async getAllUsers() {
+        try {
+            const users = await this.userModel.getAllUsers()
+            return users
+        } catch (e) {
+            return e
+        }
+    }
+
     async getUserByUsername(username) {
         try {
             const user = await this.userModel.getUserByUsername(username)
@@ -26,7 +36,6 @@ class UserService {
                 username,
                 email,
                 phone,
-                user_id,
                 is_admin,
                 company_id,
                 image_url,
@@ -38,7 +47,6 @@ class UserService {
                 username,
                 email,
                 phone,
-                user_id,
                 is_admin,
                 company_id,
                 image_url,
