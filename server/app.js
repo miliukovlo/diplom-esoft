@@ -15,6 +15,12 @@ const CompanyService = require('./Service/CompanyService')
 const ProjectModel = require('./Models/ProjectModel')
 const ProjectController = require('./Controllers/ProjectController')
 const ProjectService = require('./Service/ProjectService')
+//Планировки
+const ApartmentModel = require('./Models/ApartmentModel')
+const ApartmentController = require('./Controllers/ApartmentController')
+const ApartmentService = require('./Service/ApartmentService')
+
+
 //Пользователи
 const userService = new UserService(UserModel)
 const userController = new UserController(userService)
@@ -24,6 +30,9 @@ const companyController = new CompanyController(companyService)
 //Проекты
 const projectService = new ProjectService(ProjectModel)
 const projectController = new ProjectController(projectService)
+//Планировки
+const apartmentService = new ApartmentService(ApartmentModel)
+const apartmentController = new ApartmentController(apartmentService)
 
 dotenv.config()
 
@@ -35,8 +44,8 @@ app.use(cors())
 app.use('/api', router(
     userController, 
     companyController, 
-    projectController
-
+    projectController,
+    apartmentController
 ))   
 
 const start = async () => {
@@ -44,6 +53,7 @@ const start = async () => {
         await sequelize.authenticate()
         await companyController.syncModel()
         await projectController.syncModel()
+        await apartmentController.syncModel()
         await userController.syncModel()
         app.listen(port, () => {
             console.log(`Сервер запущен на ${port} порту`)

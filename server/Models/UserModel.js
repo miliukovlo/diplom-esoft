@@ -10,6 +10,10 @@ class UserModel {
                     type: DataTypes.STRING,
                     allowNull: false,
                 },
+                favorite_company: {
+                    type: DataTypes.ARRAY(DataTypes.STRING),
+                    allowNull: true,
+                },
                 last_name: {
                     type: DataTypes.STRING,
                     allowNull: false,

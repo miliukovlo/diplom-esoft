@@ -18,7 +18,7 @@ class ProjectModel {
                 },
                 company_id: {
                     type: DataTypes.STRING,
-                    allowNull: true,
+                    allowNull: false,
                     references: {
                         model: 'companies',
                         key: 'company_id'
