@@ -1,4 +1,5 @@
 import axios from "axios";
+import CryptoJS from "crypto-js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../data/reducers/userReducer";
@@ -12,8 +13,8 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
                 console.log(userName, password)
                 const getUser = await axios.get(`http://localhost:3760/api/users/${userName}`);
                 const userData = getUser.data
-                if (userData && userData.user_password === password && userData.username === userName) {
-                    
+                const decryptedPassword = JSON.parse(CryptoJS.AES.decrypt(userData.user_password, 'someSecretKey').toString(CryptoJS.enc.Utf8))
+                if (userData && decryptedPassword === password && userData.username === userName) {
                     dispatch(addUser({
                         firstName: userData.first_name,
                         lastName: userData.last_name,
@@ -24,7 +25,7 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
                         companyId: userData.company_id,
                         image: userData.image_url,
                         theme: userData.theme,
-                        password: userData.password
+                        password: userData.user_password
                     }))
                     setError(false);
                     navigate('/main')

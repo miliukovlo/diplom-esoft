@@ -9,6 +9,7 @@ import AdminCreateProject from './AdminCreateProject/AdminCreateProject';
 import AdminRequests from './AdminRequests/AdminRequests';
 import Button from '../UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface AdminContentProps {
     email: string,
@@ -18,7 +19,8 @@ interface AdminContentProps {
     phone: string,
     image: string | undefined,
     theme: string,
-    companyId: string
+    companyId: string,
+    password: string
 }
 
 const AdminContent: React.FC<AdminContentProps> = ({
@@ -29,7 +31,8 @@ const AdminContent: React.FC<AdminContentProps> = ({
     phone,
     image,
     theme,
-    companyId
+    companyId,
+    password
 }) => {
 
     const inputsInfo: UserPageInputInfoInterface[] = [
@@ -65,12 +68,27 @@ const AdminContent: React.FC<AdminContentProps> = ({
             parameterTitle: 'Сменить пароль',
             id: 6,
             placeholderForNew: 'Введите новый пароль',
-            type: 'text',
+            type: 'password',
             valueOfInputNew: useInput(''),
         },
     ]
 
     const navigate = useNavigate()
+
+    const handleChange = async () => {
+        try {
+            axios.put(`http://localhost:3760/api/users/${username}`, {
+                first_name: inputsInfo[0].valueOfInputNew.value === '' ? firstName : inputsInfo[0].valueOfInputNew.value,
+                last_name: inputsInfo[1].valueOfInputNew.value === '' ? lastName : inputsInfo[1].valueOfInputNew.value,
+                email: inputsInfo[2].valueOfInputNew.value === '' ? email : inputsInfo[2].valueOfInputNew.value,
+                phone: inputsInfo[3].valueOfInputNew.value === '' ? phone : inputsInfo[3].valueOfInputNew.value,
+                password: inputsInfo[4].valueOfInputNew.value === '' ? password : CryptoJS.AES.encrypt(JSON.stringify(inputsInfo[4].valueOfInputNew.value), "someSecretKey").toString(),
+                theme: theme
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     return (
         <div className='admin-content'>
@@ -99,6 +117,11 @@ const AdminContent: React.FC<AdminContentProps> = ({
             <UserConfig
                 inputsInfo={inputsInfo}
                 theme={theme}
+            />
+            <Button
+                size='l'
+                text='Сохранить'
+                onClick={() => {handleChange()}}
             />
             <Button
                 size='l'

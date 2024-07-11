@@ -1,4 +1,5 @@
 import React from 'react';
+import CryptoJS from 'crypto-js';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../data/reducers/store';
 import { UserInterface } from '../../Interfaces/UserInterface';
@@ -25,12 +26,13 @@ const UserContent = React.memo(() => {
 
     const handleChange = async () => {
         try {
+            const encryptedPassword = CryptoJS.AES.encrypt(JSON.stringify(inputsInfo[4].valueOfInputNew.value), "someSecretKey").toString()
             axios.put(`http://localhost:3760/api/users/${getUser[0].username}`, {
                 first_name: inputsInfo[0].valueOfInputNew.value === '' ? getUser[0].firstName : inputsInfo[0].valueOfInputNew.value,
                 last_name: inputsInfo[1].valueOfInputNew.value === '' ? getUser[0].lastName : inputsInfo[1].valueOfInputNew.value,
                 email: inputsInfo[2].valueOfInputNew.value === '' ? getUser[0].email : inputsInfo[2].valueOfInputNew.value,
                 phone: inputsInfo[3].valueOfInputNew.value === '' ? getUser[0].phone : inputsInfo[3].valueOfInputNew.value,
-                password: inputsInfo[4].valueOfInputNew.value === '' ? getUser[0].password : inputsInfo[4].valueOfInputNew.value,
+                user_password: inputsInfo[4].valueOfInputNew.value === '' ? getUser[0].password : encryptedPassword,
                 theme: theme.theme
             })
         } catch (e) {
@@ -71,7 +73,7 @@ const UserContent = React.memo(() => {
             parameterTitle: 'Сменить пароль',
             id: 6,
             placeholderForNew: 'Введите новый пароль',
-            type: 'text',
+            type: 'password',
             valueOfInputNew: useInput(''),
         },
     ]

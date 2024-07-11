@@ -22,6 +22,7 @@ const AdminPage = React.memo(() => {
                 image={currentUser.image!}
                 theme={theme.theme}
                 companyId={currentUser.companyId!}
+                password={currentUser.password!}
             />
         </main>
     );

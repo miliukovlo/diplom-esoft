@@ -1,8 +1,8 @@
 import axios from "axios";
+import CryptoJS from "crypto-js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../data/reducers/userReducer";
-import { GetId } from "./GetId";
 
 const useRegisterInSystem = (
     userName: string, 
@@ -19,6 +19,7 @@ const useRegisterInSystem = (
 ) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const encryptedPassword = CryptoJS.AES.encrypt(JSON.stringify(password), "someSecretKey").toString()
     const register = async () => {
         try {
             if (
@@ -39,7 +40,7 @@ const useRegisterInSystem = (
                     company_id: isAdmin ? companyId : null,
                     image_url: null,
                     theme: 'dark',
-                    password: 'password'
+                    password: encryptedPassword
                 });
                 const userData = createUser.data
                 console.log(userData)
@@ -54,7 +55,7 @@ const useRegisterInSystem = (
                         isAdmin: userData.is_admin,
                         companyId: userData.company_id,
                         image: userData.image_url,
-                        password: userData.password,
+                        password: encryptedPassword,
                         theme: userData.theme
                     }))
                     setError(false);

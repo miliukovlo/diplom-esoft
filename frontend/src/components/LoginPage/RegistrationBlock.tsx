@@ -12,6 +12,7 @@ interface RegistrationBlockProps {
     isAdmin: { value: boolean; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<boolean>>; },
     companyId: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<string>>; },
     error: boolean,
+    theme: string,
     registrationOrLogin: boolean,
     registerInSystem: () => {}
 }
@@ -27,6 +28,7 @@ const RegistrationBlock: React.FC<RegistrationBlockProps> = React.memo(({
     lastName,
     companyId,
     isAdmin,
+    theme,
     registerInSystem
 }) => {
 
@@ -80,7 +82,7 @@ const RegistrationBlock: React.FC<RegistrationBlockProps> = React.memo(({
             />
             <div className="is-admin__block">
             <input type='checkbox' id='checkbox-login' className='login-checkbox' checked={isAdmin.value} onChange={handleIsAdminChange}/>
-            <label htmlFor="checkbox-login">Вы администратор компании?</label>
+            <label className={theme === 'dark' ? 'light-title' : 'dark-title'} htmlFor="checkbox-login">Вы администратор компании?</label>
             </div>
             {isAdmin.value &&             
             <Input

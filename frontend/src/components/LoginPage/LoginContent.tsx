@@ -42,6 +42,7 @@ const LoginContent : React.FC = () => {
             <h2 className='main-login__title'>{registrationOrLogin ? 'Войти' : 'Регистрация'}</h2>
             {registrationOrLogin ? 
                 <RegistrationBlock
+                theme={theme.theme}
                 userName={userName}
                 phone={phone}
                 isAdmin={isAdmin}
