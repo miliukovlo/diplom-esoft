@@ -11,6 +11,14 @@ interface RegistrationBlockProps {
     lastName: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<string>>; },
     isAdmin: { value: boolean; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<boolean>>; },
     companyId: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<string>>; },
+    companyName: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<string>>; },
+    companyImage: {     imageForProject: File | undefined;
+        handleImageChange: (event: ChangeEvent<HTMLInputElement>) => Promise<unknown>;
+        setImageForProject: React.Dispatch<React.SetStateAction<File | undefined>>;
+        imageUrl: string;
+        setImageUrl: React.Dispatch<string> },
+    companySlogan: { value: string; onChange: (e: ChangeEvent<HTMLInputElement>) => void; setValue: React.Dispatch<React.SetStateAction<string>>; },
+    companySpecialization: { value: string; onChange: (e: ChangeEvent<HTMLSelectElement>) => void; setValue: React.Dispatch<React.SetStateAction<string>>; },
     error: boolean,
     theme: string,
     registrationOrLogin: boolean,
@@ -27,6 +35,10 @@ const RegistrationBlock: React.FC<RegistrationBlockProps> = React.memo(({
     firstName,
     lastName,
     companyId,
+    companyName,
+    companyImage,
+    companySlogan,
+    companySpecialization,
     isAdmin,
     theme,
     registerInSystem
@@ -85,13 +97,54 @@ const RegistrationBlock: React.FC<RegistrationBlockProps> = React.memo(({
             <label className={theme === 'dark' ? 'light-title' : 'dark-title'} htmlFor="checkbox-login">Вы администратор компании?</label>
             </div>
             {isAdmin.value &&             
-            <Input
-                value={companyId.value}
-                placeholder='Введите вашу фамилию'
-                onChange={companyId.onChange}
-                type='text'
-                size='m'
-            />
+                <>
+                    <Input
+                        value={companyId.value}
+                        placeholder='Введите id вашей компании'
+                        onChange={companyId.onChange}
+                        type='text'
+                        size='m'
+                    />
+                    <Input
+                        value={companyName.value}
+                        placeholder='Введите название вашей компании'
+                        onChange={companyName.onChange}
+                        type='text'
+                        size='m'
+                    />
+                    <Input
+                        value={companySlogan.value}
+                        placeholder='Введите слоган вашей компании'
+                        onChange={companySlogan.onChange}
+                        type='text'
+                        size='m'
+                    />
+                    <h2 className={theme === 'dark' ? "info-title light-title" : 'info-title dark-title'}>Выберите специализацию компании</h2>
+                    <select name="" id="" value={companySpecialization.value} onChange={(e) => {companySpecialization.setValue(e.target.value)}}>
+                        <option value="apartment">Квартиры</option>
+                        <option value="house">Частный дом</option>
+                    </select>
+                    <h2 className={theme === 'dark' ? "info-title light-title" : 'info-title dark-title'}>Выберите изображение для вашей компании</h2>
+                    <div className="user-content__blocks">
+                        <div className="user-content__image-block">
+                        <input 
+                            type='file' 
+                            id='image-of-user' 
+                            name='image-of-user' 
+                            style={{ display: 'none' }}
+                            accept='image/png, image/jpeg'
+                            onChange={companyImage.handleImageChange}
+                        />
+                        <label htmlFor="image-of-user" className="image-button">
+                            <img 
+                                src={'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} 
+                                alt="Аватар пользователя" 
+                                className={theme === 'dark' ? "user-image user-image-dark" : 'user-image user-image-light'} 
+                            />
+                        </label>
+                        </div>
+                    </div>
+                </>
             }
             <Button
                 text={registrationOrLogin ? 'Зарегистрироваться' : 'Войти'}

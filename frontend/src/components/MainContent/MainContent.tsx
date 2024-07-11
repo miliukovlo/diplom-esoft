@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MainContentStyle.css'
 import { useSelector } from 'react-redux';
 import CompanyInterface from '../../Interfaces/CompanyInterface';
@@ -10,6 +10,8 @@ const MainContent: React.FC = () => {
     const companies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
+    useEffect(() => {
+    }, [])
     return (
         <main className={theme.theme === 'dark' ? 'main main-content dark-back' : 'main main-content light-back'}>
             <div className="companies-block">

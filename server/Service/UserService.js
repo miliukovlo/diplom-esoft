@@ -41,18 +41,18 @@ class UserService {
                 image_url,
                 password
             } = body
-            const user = await this.userModel.createUser(
-                first_name,
-                last_name,
-                username,
-                email,
-                phone,
-                is_admin,
-                company_id,
-                image_url,
-                password
-            )
-            return user
+                const user = await this.userModel.createUser(
+                    first_name,
+                    last_name,
+                    username,
+                    email,
+                    phone,
+                    is_admin,
+                    company_id,
+                    image_url,
+                    password
+                )
+                return user
         } catch (e) {
             return e
         }

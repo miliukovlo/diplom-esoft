@@ -10,6 +10,8 @@ import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 import LoginBlock from './LoginBlock';
 import RegistrationBlock from './RegistrationBlock';
 import useRegisterInSystem from '../../Hooks/useRegisterInSystem';
+import { useImageHandler } from '../../Hooks/useImage';
+import { useSelect } from '../../Hooks/useSelect';
 
 const LoginContent : React.FC = () => {
     const userName = useInput<string>('')
@@ -20,6 +22,10 @@ const LoginContent : React.FC = () => {
     const firstName = useInput<string>('')
     const lastName = useInput<string>('')
     const companyId = useInput<string>('')
+    const companyName = useInput<string>('')
+    const companySlogan = useInput<string>('')
+    const companyImage = useImageHandler()
+    const companySpecialization = useSelect<string>('')
     const [registrationOrLogin, setRegistrationOrLogin] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)
 
@@ -33,6 +39,10 @@ const LoginContent : React.FC = () => {
         phone.value,
         isAdmin.value,
         companyId.value,
+        companyName.value,
+        companySlogan.value,
+        companySpecialization.value,
+        companyImage.imageUrl,
         setError
     )
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
@@ -53,6 +63,10 @@ const LoginContent : React.FC = () => {
                 password={password}
                 error={error}
                 registerInSystem={registation}
+                companyImage={companyImage}
+                companyName={companyName}
+                companySlogan={companySlogan}
+                companySpecialization={companySpecialization}
                 registrationOrLogin={registrationOrLogin}
                 />
                 :

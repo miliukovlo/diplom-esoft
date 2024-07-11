@@ -1,3 +1,4 @@
+import axios from "axios"
 import CompanyActionReducerInterface from "../../Interfaces/CompanyActionReducerInterface"
 import CompanyInterface from "../../Interfaces/CompanyInterface"
 
@@ -68,7 +69,6 @@ const defaultCompanies = {
         },
     ] as CompanyInterface[]
 }
-
 const ADD_COMPANY = "ADD_COMPANY"
 const REMOVE_COMPANY = "REMOVE_COMPANY"
 
