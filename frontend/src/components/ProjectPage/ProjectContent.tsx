@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProjectContentStyle.css'
 import { ProjectInterface } from '../../Interfaces/ProjectInterface';
 import ProjectImage from './ProjectImage/ProjectImage';
@@ -10,6 +10,7 @@ import ProjectApartmentList from './ProjectApartmentList/ProjectApartmentList';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../data/reducers/store';
 import { UserInterface } from '../../Interfaces/UserInterface';
+import axios from 'axios';
 
 export interface ProjectContentProps extends ProjectInterface {
     theme: string
@@ -28,6 +29,10 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
     const commentValue = useTextarea<string>('')
     const getUser = useSelector((state: RootState) => state.user.user as UserInterface[])
     const currentUser = getUser[0]
+    console.log(id)
+    useEffect(() => {
+        axios.put(`http://localhost:3760/api/project/${id}`)
+    },[])
 
     return (
         <div className='project-content'>

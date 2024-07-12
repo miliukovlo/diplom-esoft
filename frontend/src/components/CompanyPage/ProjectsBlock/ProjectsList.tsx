@@ -43,7 +43,7 @@ const ProjectsList: React.FC<ProjectsListProps> = React.memo(({
                                 id: project.project_id,
                                 type: project.project_type,
                                 description: project.description,
-                                posterUrl: project.logo,
+                                posterUrl: "https://msk.vnovoselie.ru/wp-content/uploads/2021/03/10-Ostrov.jpg",
                                 companyId: project.company_id,
                                 watch: project.watch,
                                 poster: undefined

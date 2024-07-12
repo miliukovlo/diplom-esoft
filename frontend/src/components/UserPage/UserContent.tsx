@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../data/reducers/store';
@@ -24,6 +24,8 @@ const UserContent = React.memo(() => {
 
     const user = getUser[0]
 
+    const [isUpdate, setIsUpdate] = useState(false)
+
     const handleChange = async () => {
         try {
             const encryptedPassword = CryptoJS.AES.encrypt(JSON.stringify(inputsInfo[4].valueOfInputNew.value), "someSecretKey").toString()
@@ -33,6 +35,7 @@ const UserContent = React.memo(() => {
                 email: inputsInfo[2].valueOfInputNew.value === '' ? getUser[0].email : inputsInfo[2].valueOfInputNew.value,
                 phone: inputsInfo[3].valueOfInputNew.value === '' ? getUser[0].phone : inputsInfo[3].valueOfInputNew.value,
                 user_password: inputsInfo[4].valueOfInputNew.value === '' ? getUser[0].password : encryptedPassword,
+                image_url: user.image,
                 theme: theme.theme
             })
         } catch (e) {
@@ -93,10 +96,11 @@ const UserContent = React.memo(() => {
                 theme={theme.theme}
                 inputsInfo={inputsInfo}
             />
+            <p className={isUpdate ? "is-update__text" : "is-update__text-no"}>Обновлено!</p>
             <Button
                 size='l'
                 text='Сохранить'
-                onClick={() => {handleChange()}}
+                onClick={() => {handleChange(); setIsUpdate(true)}}
             />
             <Button
                 size='l'

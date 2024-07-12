@@ -25,7 +25,7 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     return (
         <div className="company-content">
             <CompanyHeader
-                logo={logo!}
+                logo={"https://www.terminaldesign.ru/upload/medialibrary/d57/d577d47ef993c04b22599ba9de8b75dc.jpg"!}
                 name={name}
                 slogan={slogan}
                 specialization={specialization}

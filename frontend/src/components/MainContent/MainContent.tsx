@@ -24,7 +24,7 @@ const MainContent: React.FC = () => {
                                 name={company.name}
                                 id={company.id}
                                 slogan={company.slogan}
-                                logo={company.logo}
+                                logo={"https://www.terminaldesign.ru/upload/medialibrary/d57/d577d47ef993c04b22599ba9de8b75dc.jpg"}
                                 specialization={company.specialization}
                                 key={company.id}
                                 theme={theme.theme}

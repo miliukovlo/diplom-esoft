@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AdminContentStyle.css'
 import AdminInformation from './AdminInformation/AdminInformation';
 import CryptoJS from 'crypto-js';
@@ -76,6 +76,8 @@ const AdminContent: React.FC<AdminContentProps> = ({
 
     const navigate = useNavigate()
 
+    const [isUpdate, setIsUpdate] = useState(false)
+
     const handleChange = async () => {
         try {
             axios.put(`http://localhost:3760/api/users/${username}`, {
@@ -119,10 +121,11 @@ const AdminContent: React.FC<AdminContentProps> = ({
                 inputsInfo={inputsInfo}
                 theme={theme}
             />
+            <p className={isUpdate ? "is-update__text" : "is-update__text-no"}>Обновлено!</p>
             <Button
                 size='l'
                 text='Сохранить'
-                onClick={() => {handleChange()}}
+                onClick={() => {handleChange(); setIsUpdate(true)}}
             />
             <Button
                 size='l'

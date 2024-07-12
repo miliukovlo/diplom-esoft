@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../UI/Button/Button';
 import './ProjectRequestStyle.css'
 import axios from 'axios';
@@ -28,7 +28,7 @@ const ProjectRequest: React.FC<ProjectRequestProps> = React.memo(({
 
     const request_id = uuidv4()
     console.log(username, first_name,last_name,email,phone)
-
+    const [isUpdate, setIsUpdate] = useState(false)
     const handleAddRequest = async () => {
         const addRequest = await axios.post('http://localhost:3760/api/request/', {
             project_id: project_id,
@@ -42,9 +42,11 @@ const ProjectRequest: React.FC<ProjectRequestProps> = React.memo(({
             phone: phone
         })
         console.log(addRequest.data)
+        setIsUpdate(true)
     }
     return (
         <div className="project-content__request">
+            <p className={isUpdate ? "is-update__text" : "is-update__text-no"}>Вы оставили ссылку!</p>
             <Button
                 text='Оставить заявку'
                 size='xl'

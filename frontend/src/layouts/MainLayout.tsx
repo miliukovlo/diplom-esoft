@@ -136,25 +136,6 @@ const MainLayout : React.FC = () => {
                                     }
                                 }
                             }) 
-                            const favorite = async () => {
-                                const getUser = await axios.get(`http://localhost:3760/api/users/${localStorage.userName}`)
-                                return getUser.data
-                            }
-                            favorite().then(user => {
-                                const favorite_id = user.favorite_company
-                                favorite_id.forEach((companyId: string) => {
-                                    const company = companies.find(company => company.id === companyId);
-                                    if (company && !favoriteCompanies.some((company) => company.id === companyId)) {
-                                        dispatch(addFavoriteCompany({
-                                            id: company.id,
-                                            name: company.name,
-                                            logo: company.logo,
-                                            slogan: company.slogan,
-                                            specialization: company.specialization
-                                        }));
-                                    }
-                                });
-                            })
                             const comments = async () => {
                                 const getComments = await axios.get('http://localhost:3760/api/comment/');
                                 return getComments.data;
@@ -208,6 +189,25 @@ const MainLayout : React.FC = () => {
                                 } 
                             });
                 }
+                const favorite = async () => {
+                    const getUser = await axios.get(`http://localhost:3760/api/users/${localStorage.userName}`)
+                    return getUser.data
+                }
+                favorite().then(user => {
+                    const favorite_id = user.favorite_company
+                    favorite_id.forEach((companyId: string) => {
+                        const company = companies.find(company => company.id === companyId);
+                        if (company && !favoriteCompanies.some((company) => company.id === companyId)) {
+                            dispatch(addFavoriteCompany({
+                                id: company.id,
+                                name: company.name,
+                                logo: company.logo,
+                                slogan: company.slogan,
+                                specialization: company.specialization
+                            }));
+                        }
+                    });
+                })
             }
         return () => {
             effectRan.current = true

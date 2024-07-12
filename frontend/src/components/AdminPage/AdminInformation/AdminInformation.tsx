@@ -35,7 +35,7 @@ const AdminInformation: React.FC<AdminInformationProps> = React.memo(({
                 />
                 <label htmlFor="image-of-user" className="image-button">
                     <img 
-                        src={image ? image : 'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} 
+                        src={'https://yt3.googleusercontent.com/ytc/AOPolaSMvxOI0YpEAbJqoOpZ-TpDR0tR-trP4qJwi55vlA=s900-c-k-c0x00ffffff-no-rj'} 
                         alt="Аватар пользователя" 
                         className={theme === 'dark' ? "user-image user-image-dark" : 'user-image user-image-light'} 
                     />
