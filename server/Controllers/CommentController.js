@@ -7,6 +7,19 @@ class CommentController {
         return await this.commentService.syncModel()
     }
 
+    getAllComments = async (req, res) => {
+        try {
+            const comments = await this.commentService.getAllComments()
+            if (!comments || comments.length === 0) {
+                res.status(404).json({error: 'Комментариев к компании нет в системе!'})
+                return
+            }
+            res.status(200).json(comments)
+        }catch (error) {
+            res.status(500).json({error: error.message})
+        }
+    }
+
     getCommentsForCompany = async (req, res) => {
         try {
             const {company_id} = req.params

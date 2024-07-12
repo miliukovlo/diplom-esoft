@@ -70,6 +70,14 @@ class CommentModel {
     async syncModel() {
         return await this.CommentScheme.sync()
     }
+
+    async getAllComments() {
+        const comments = await this.CommentScheme.findAll()
+        if (!comments) {
+            return {error: 'Не удалось найти комментарии для компании!'}
+        }
+        return comments
+    }
     
     async getCommentsForCompany(company_id, for_company) {
         const comments = await this.CommentScheme.findAll({

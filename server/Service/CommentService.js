@@ -11,6 +11,16 @@ class CommentService {
         }
     }
 
+    async getAllComments() {
+        try {
+            const comments = await this.commentModel.getAllComments()
+            return comments
+        } catch (e) {
+            return e
+        }
+    }
+
+
     async getCommentsForCompany(company_id, body) {
         try {
             const {for_company} = body
