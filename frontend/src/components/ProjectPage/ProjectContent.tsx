@@ -7,6 +7,9 @@ import ProjectRequest from './ProjectRequest/ProjectRequest';
 import CommentList from '../Common/CommentList/CommentList';
 import { useTextarea } from '../../Hooks/useTextarea';
 import ProjectApartmentList from './ProjectApartmentList/ProjectApartmentList';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../data/reducers/store';
+import { UserInterface } from '../../Interfaces/UserInterface';
 
 export interface ProjectContentProps extends ProjectInterface {
     theme: string
@@ -23,6 +26,8 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
 }: ProjectContentProps) => {
 
     const commentValue = useTextarea<string>('')
+    const getUser = useSelector((state: RootState) => state.user.user as UserInterface[])
+    const currentUser = getUser[0]
 
     return (
         <div className='project-content'>
@@ -35,7 +40,16 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
                 description={description}
                 theme={theme}
             />
-            <ProjectRequest/>
+            <ProjectRequest
+                project_id={id}
+                apartment_id={null}
+                company_id={companyId}
+                username={currentUser.username!}
+                first_name={currentUser.firstName!}
+                last_name={currentUser.lastName!}
+                email={currentUser.email!}
+                phone={currentUser.phone!}
+            />
             <ProjectApartmentList
                 projectId={id}
                 companyId={companyId}

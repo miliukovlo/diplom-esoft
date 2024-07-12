@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGetForCompany } from '../../../Hooks/useGetForCompany';
 import { RequestUserInterface } from '../../../Interfaces/RequestUserInterface';
 import Button from '../../UI/Button/Button';
 import { useDispatch } from 'react-redux';
 import { removeUserRequest } from '../../../data/reducers/requestReducer';
+import axios from 'axios';
 
 interface AdminRequestsProps {
     companyId: string,
@@ -17,7 +18,8 @@ const AdminRequests: React.FC<AdminRequestsProps> = ({
 
     const companyRequests: RequestUserInterface[] = useGetForCompany('requests-for-company', companyId, undefined)!
     const dispatch = useDispatch()
-    const removeCurrentRequest = (id: number) => {
+    const removeCurrentRequest = async (id: string) => {
+        const deleteRequest = await axios.delete(`http://localhost:3760/api/request/${id}`)
         console.log(id)
         dispatch(removeUserRequest(id))
     }
@@ -43,7 +45,7 @@ const AdminRequests: React.FC<AdminRequestsProps> = ({
                             <Button
                                 text='Удалить заявку'
                                 size="m"
-                                onClick={() => {removeCurrentRequest(request.id!)}}
+                                onClick={() => {removeCurrentRequest(request.id)}}
                             />
                         </div>
                     )

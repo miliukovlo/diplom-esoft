@@ -1,7 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../Database/DatabaseInfo");
 
-
 class RequestsModel {
     constructor() {
         this.RequestScheme = sequelize.define(
@@ -45,7 +44,23 @@ class RequestsModel {
                         model: 'users_lists',
                         key: 'username'
                     }
-                }
+                },
+                first_name: {
+                    type: DataTypes.STRING,
+                    allowNull: true,
+                },
+                last_name: {
+                    type: DataTypes.STRING,
+                    allowNull: true,
+                },
+                email: {
+                    type: DataTypes.STRING,
+                    allowNull: true,
+                },
+                phone: {
+                    type: DataTypes.STRING,
+                    allowNull: true,
+                },
             }
         )
     }
@@ -79,6 +94,10 @@ class RequestsModel {
         company_id,
         username,
         request_id,
+        first_name,
+        last_name,
+        email,
+        phone
     ) {
         const request = await this.RequestScheme.create({
             project_id,
@@ -86,6 +105,10 @@ class RequestsModel {
             company_id,
             username,
             request_id,
+            first_name,
+            last_name,
+            email,
+            phone
         })
         return request
     }

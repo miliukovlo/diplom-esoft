@@ -6,9 +6,14 @@ import { useTextarea } from '../../Hooks/useTextarea';
 import ApartmentImage from './ApartmentImage/ApartmentImage';
 import ApartmentInfo from './ApartmentInfo/ApartmentInfo';
 import ProjectRequest from '../ProjectPage/ProjectRequest/ProjectRequest';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../data/reducers/store';
+import { UserInterface } from '../../Interfaces/UserInterface';
 
 interface ApartmentContentProps extends ApartmentInterface {
-    theme: string
+    theme: string,
+    projectId: string,
+    companyId: string
 }
 
 const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
@@ -23,10 +28,14 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
     poster,
     description,
     type,
-    theme
+    theme,
+    projectId,
+    companyId
 }: ApartmentContentProps) => {
 
     const commentValue = useTextarea('')
+    const getUser = useSelector((state: RootState) => state.user.user as UserInterface[])
+    const currentUser = getUser[0]
 
     return (
             <div className="apartment-content">
@@ -47,7 +56,16 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
                         theme={theme}
                     />
                 </div>
-                <ProjectRequest/>
+                <ProjectRequest
+                    apartment_id={id}
+                    project_id={null}
+                    company_id={companyId}
+                    username={currentUser.username!}
+                    first_name={currentUser.firstName!}
+                    last_name={currentUser.lastName!}
+                    email={currentUser.email!}
+                    phone={currentUser.phone!}
+                />
                 <CommentList
                     type='apartment'
                     forWho='apartment'

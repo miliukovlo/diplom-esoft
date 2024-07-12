@@ -49,7 +49,8 @@ class RequestController {
 
     deleteRequest = async (req,res) => {
         try {
-            const request = await this.requestsService.deleteRequest(req.body)
+            const {request_id} = req.params
+            const request = await this.requestsService.deleteRequest(request_id)
             if (!request || request.length === 0) {
                 res.status(404).json({error: 'Не удалось удалить заявку!'})
                 return

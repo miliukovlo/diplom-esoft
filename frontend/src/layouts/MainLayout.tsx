@@ -16,6 +16,8 @@ import { ApartmentInterface } from '../Interfaces/ApartmentInterface';
 import { addApartment, clearApartment } from '../data/reducers/apartmentReducer';
 import { CommentInterface } from '../Interfaces/CommentInterface';
 import { addComment, clearComment } from '../data/reducers/commentsReducer';
+import { RequestUserInterface } from '../Interfaces/RequestUserInterface';
+import { addUserRequest } from '../data/reducers/requestReducer';
 
 const MainLayout : React.FC = () => {
     const companies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
@@ -24,6 +26,7 @@ const MainLayout : React.FC = () => {
     const apartments = useSelector((state : RootState) => state.apartments.apartments as ApartmentInterface[])
     const dispatch = useDispatch()
     const getComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
+    const getRequests = useSelector((state : RootState) => state.requests.requests as RequestUserInterface[])
     const navigate = useNavigate()
     const effectRan = useRef(false)
 
@@ -169,6 +172,34 @@ const MainLayout : React.FC = () => {
                                                     apartmentId: comment.apartment_id,
                                                     companyId: comment.company_id,
                                                     username: comment.username
+                                                }));
+                                            }
+                                    }catch (e) {
+                                        console.log(e)
+                                    }
+                                } 
+                            });
+                            const requests = async () => {
+                                const getRequests = await axios.get('http://localhost:3760/api/request/');
+                                return getRequests.data;
+                            };
+                            
+                            requests().then(requests => {
+                                dispatch(clearComment());
+                                console.log(requests)
+                                for (const request of requests) {
+                                    try {
+                                            if (!getRequests.some(com => com.id === request.id)) {
+                                                dispatch(addUserRequest({
+                                                    id: request.request_id,
+                                                    projectId: request.project_id,
+                                                    companySend: request.company_id,
+                                                    apartmentId: request.apartment_id,
+                                                    username: request.username,
+                                                    firstName: request.first_name,
+                                                    lastName: request.last_name,
+                                                    email: request.email,
+                                                    phone: request.phone
                                                 }));
                                             }
                                     }catch (e) {

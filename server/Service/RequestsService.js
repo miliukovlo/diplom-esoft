@@ -36,6 +36,10 @@ class RequestsService {
                 company_id,
                 username,
                 request_id,
+                first_name,
+                last_name,
+                email,
+                phone
             } = body
             const request = await this.requestsModel.createRequest(
                 project_id,
@@ -43,17 +47,18 @@ class RequestsService {
                 company_id,
                 username,
                 request_id,
+                first_name,
+                last_name,
+                email,
+                phone
             )
             return request
         } catch (e) {
             return e
         }
     }
-    async deleteRequest(body) {
+    async deleteRequest(request_id) {
         try {
-            const {
-                request_id,
-            } = body
             const request = await this.requestsModel.deleteRequest(
                 request_id,
             )

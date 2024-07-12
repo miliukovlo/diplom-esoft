@@ -1,8 +1,13 @@
-import { UserInterface } from "./UserInterface";
 
-export interface RequestUserInterface extends UserInterface {
+
+export interface RequestUserInterface {
+    id: string,
+    projectId: string,
     companySend: string,
-    projectId: number,
-    apartmentId: number,
-    id: number
+    apartmentId: string,
+    username: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phone: string
 }
