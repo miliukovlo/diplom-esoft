@@ -7,6 +7,19 @@ class ApartmentController {
         return await this.apartmentService.syncModel()
     }
 
+    getAllApartments = async (req, res) => {
+        try {
+            const apartments = await this.apartmentService.getAllApartments()
+            if (!apartments || apartments.length === 0) {
+                res.status(404).json({error: 'Проектов нет в системе!'})
+                return
+            }
+            res.status(200).json(apartments)
+        }catch (error) {
+            res.status(500).json({error: error.message})
+        }
+    }
+
     getApartmentsForProject = async (req, res) => {
         try {
             const {project_id} = req.params

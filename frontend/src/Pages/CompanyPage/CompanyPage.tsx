@@ -10,8 +10,12 @@ import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 
 const CompanyPage: React.FC = () => {
     const companyId: Readonly<Params<string>> = useParams()
-    const companyInformation: CompanyInterface = useGetForCompany<CompanyInterface>('company', companyId.id)!
+    const companyInformation: CompanyInterface | undefined = useGetForCompany<CompanyInterface>('company', companyId.id)
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+
+    if (!companyInformation) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>

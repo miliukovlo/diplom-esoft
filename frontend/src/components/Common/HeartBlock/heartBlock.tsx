@@ -27,7 +27,6 @@ const HeartBlock: React.FC<HeartBlockInterface> = React.memo(({
 
     const handleAddToFavorite = useCallback(async (e: React.MouseEvent) => {
         e.stopPropagation()
-        console.log(isCompanyFavorite)
         if (!isCompanyFavorite) {
             const newCompany = {
                 name: name,

@@ -11,6 +11,15 @@ class ApartmentService {
         }
     }
 
+    async getAllApartments() {
+        try {
+            const apartments = await this.apartmentModel.getAllApartments()
+            return apartments
+        } catch (e) {
+            return e
+        }
+    }
+
     async getApartmentsForProject(project_id) {
         try {
             const apartments = await this.apartmentModel.getApartmentsForProject(project_id)

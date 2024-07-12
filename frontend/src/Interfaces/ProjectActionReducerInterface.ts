@@ -2,5 +2,5 @@ import { ProjectInterface } from "./ProjectInterface";
 
 export default interface ProjectActionReducerInterface {
     type: string,
-    payload: ProjectInterface | number
+    payload: ProjectInterface | number | string
 }

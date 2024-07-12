@@ -25,7 +25,7 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
     return (
         <div className="company-content">
             <CompanyHeader
-                logo={logo}
+                logo={logo!}
                 name={name}
                 slogan={slogan}
                 specialization={specialization}

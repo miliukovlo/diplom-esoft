@@ -82,6 +82,14 @@ class ApartmentModel {
         return await this.ApartmentScheme.sync()
     }
 
+    async getAllApartments() {
+        const apartments = await this.ApartmentScheme.findAll()
+        if (!apartments) {
+            return {error: 'Не удалось найти планировки!'}
+        }
+        return apartments
+    }
+
     async getApartmentsForProject(project_id) {
         const apartments = await this.ApartmentScheme.findAll({
             where: {

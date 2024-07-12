@@ -2,39 +2,12 @@ import ProjectActionReducerInterface from "../../Interfaces/ProjectActionReducer
 import { ProjectInterface } from "../../Interfaces/ProjectInterface"
 
 const defaultProjects = {
-    projects: [
-        {
-            title: 'Название проекта',
-            id: 14277124,
-            type: 'Жилой комплекс',
-            description: 'Описание...',
-            posterUrl: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
-            companyId: 'someCompany3',
-            watch: 5000
-        },
-        {
-            title: 'Название проекта',
-            id: 14277122,
-            type: 'Жилой комплекс',
-            description: 'Описание...',
-            posterUrl: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
-            companyId: 'someCompany3',
-            watch: 15000
-        },
-        {
-            title: 'Название проекта',
-            id: 14277121,
-            type: 'Жилой комплекс',
-            description: 'Описание...',
-            posterUrl: 'https://msk.vnovoselie.ru/wp-content/uploads/2021/03/ZHK_Skandinaviya.jpg',
-            companyId: 'someCompany3',
-            watch: 45000
-        },
-    ] as ProjectInterface[]
+    projects: []  as ProjectInterface[]
 }
 
 const ADD_PROJECT = "ADD_PROJECT"
 const REMOVE_PROJECT = "REMOVE_PROJECT"
+const CLEAR_PROJECT = "CLEAR_PROJECT"
 
 export const projectsReducer = (state = defaultProjects, action: ProjectActionReducerInterface) => {
     switch (action.type) {
@@ -42,10 +15,13 @@ export const projectsReducer = (state = defaultProjects, action: ProjectActionRe
             return {...state, projects: [...state.projects, action.payload]}
         case REMOVE_PROJECT:
             return {...state, projects: state.projects.filter(project => project.id !== action.payload)}
+        case CLEAR_PROJECT:
+            return {...state, projects: []}
         default:
             return state
     }
 }
 
 export const addProject = (payload: ProjectInterface) => ({type: ADD_PROJECT, payload})
-export const removeProject = (payload: string) => ({type: REMOVE_PROJECT, payload}) 
+export const removeProject = (payload: string) => ({type: REMOVE_PROJECT, payload})
+export const clearProject = () => ({type: CLEAR_PROJECT}) 

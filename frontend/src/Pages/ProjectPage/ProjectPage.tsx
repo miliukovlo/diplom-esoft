@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGetForCompany } from '../../Hooks/useGetForCompany';
 import { ProjectInterface } from '../../Interfaces/ProjectInterface';
-import { Params, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProjectContent from '../../components/ProjectPage/ProjectContent';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../data/reducers/store';
@@ -9,18 +9,21 @@ import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 
 const ProjectPage = () => {
 
-    const params: Readonly<Params<string>> = useParams()
+    const params = useParams();
+    const id = params.projectId;
 
-    const id: number = Number(params.projectId)
+    const currentProject: ProjectInterface | undefined = useGetForCompany<ProjectInterface>('project-by-id', params.id, id);
 
-    const currentProject: ProjectInterface = useGetForCompany<ProjectInterface>('project-by-id',params.id, id)!
+    const theme = useSelector((state: RootState) => state.theme.theme as ThemeReducerInterface);
 
-    const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+    if (!currentProject) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>
             <ProjectContent
-                posterUrl={currentProject.posterUrl}
+                posterUrl={'https://msk.vnovoselie.ru/wp-content/uploads/2021/09/sidney-siti-moskva-jk-1002721217-10.jpg'}
                 title={currentProject.title}
                 poster={currentProject.poster}
                 description={currentProject.description}

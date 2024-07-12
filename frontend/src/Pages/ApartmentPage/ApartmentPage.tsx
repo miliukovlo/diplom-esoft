@@ -11,8 +11,13 @@ const ApartmentPage = React.memo(() => {
 
     const params = useParams()
 
-    const currentApartment: ApartmentInterface = useGetForCompany('apartment-by-id', params.companyId, Number(params.projectId), Number(params.apartmentId))!
+    const currentApartment: ApartmentInterface | undefined = useGetForCompany('apartment-by-id', params.companyId, Number(params.projectId), Number(params.apartmentId))
+
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+
+    if (!currentApartment) {
+        return <div>Loading...</div>; // Можно добавить заглушку или индикатор загрузки
+    }
 
     return (
         <main className={theme.theme === 'dark' ? 'main dark-back' : 'main light-back'}>
