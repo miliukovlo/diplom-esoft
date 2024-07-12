@@ -7,6 +7,19 @@ class RequestController {
         return await this.requestsService.syncModel()
     }
 
+    getAllRequests = async (req, res) => {
+        try {
+            const requests = await this.requestsService.getAllRequests()
+            if (!requests) {
+                res.status(404).json({error: 'Заявок к компании нет в системе!'})
+                return
+            }
+            res.status(200).json(requests)
+        }catch (error) {
+            res.status(500).json({error: error.message})
+        }
+    }
+
     getRequestsForCompany = async (req, res) => {
         try {
             const {company_id} = req.params

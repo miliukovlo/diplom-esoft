@@ -11,6 +11,15 @@ class RequestsService {
         }
     }
 
+    async getAllRequests() {
+        try {
+            const requests = await this.requestsModel.getAllRequests()
+            return requests
+        } catch (e) {
+            return e
+        }
+    }
+
     async getRequestsForCompany(company_id) {
         try {
             const requests = await this.requestsModel.getRequestsForCompany(company_id)

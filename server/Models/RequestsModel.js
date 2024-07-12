@@ -53,6 +53,14 @@ class RequestsModel {
     async syncModel() {
         return await this.RequestScheme.sync()
     }
+
+    async getAllRequests() {
+        const requests = await this.RequestScheme.findAll()
+        if (!requests) {
+            return {error: 'Не удалось найти комментарии для компании!'}
+        }
+        return requests
+    }
     
     async getRequestsForCompany(company_id) {
         const requests = await this.RequestScheme.findAll({
