@@ -57,18 +57,12 @@ class CommentService {
                 apartment_id,
                 company_id,
                 comment_data,
-                for_company,
-                for_project,
-                for_apartment,
                 username,
                 comment_id,
             } = body
             const comment = await this.commentModel.createComment(
                 project_id,
                 apartment_id,
-                for_company,
-                for_project,
-                for_apartment,
                 company_id,
                 comment_data,
                 username,

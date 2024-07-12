@@ -18,7 +18,7 @@ const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, Proj
             type === 'apartment' ? 'comment-for-apartment' : 
             'comment-for-company', 
             CompanyId, ProjectId, ApartmentId)
-
+        
     return (
         <div className={theme === 'dark' ? 'comments-list list-black' : 'comments-list list-light'}>
             {

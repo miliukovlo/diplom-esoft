@@ -16,8 +16,6 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
     cost,
     square,
     rooms,
-    companyId,
-    projectId,
     id,
     haveBalcony,
     amount,
@@ -57,8 +55,6 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
                     onChange={commentValue.onChange}
                     setValue={commentValue.setValue}
                     apartmentId={id}
-                    CompanyId={companyId}
-                    projectId={projectId}
                     theme={theme}
                 />
             </div>

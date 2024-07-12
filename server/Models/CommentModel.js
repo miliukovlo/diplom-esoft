@@ -26,18 +26,6 @@ class CommentModel {
                     unique: true,
                     primaryKey: true
                 },
-                for_company: {
-                    type: DataTypes.BOOLEAN,
-                    allowNull: false,
-                },
-                for_project: {
-                    type: DataTypes.BOOLEAN,
-                    allowNull: true,
-                },
-                for_apartment: {
-                    type: DataTypes.BOOLEAN,
-                    allowNull: true,
-                },
                 apartment_id: {
                     type: DataTypes.STRING,
                     allowNull: true,
@@ -48,7 +36,7 @@ class CommentModel {
                 },
                 company_id: {
                     type: DataTypes.STRING,
-                    allowNull: false,
+                    allowNull: true,
                     references: {
                         model: 'companies',
                         key: 'company_id'
@@ -67,6 +55,7 @@ class CommentModel {
     }
     
 
+    
     async syncModel() {
         return await this.CommentScheme.sync()
     }
@@ -79,11 +68,10 @@ class CommentModel {
         return comments
     }
     
-    async getCommentsForCompany(company_id, for_company) {
+    async getCommentsForCompany(company_id) {
         const comments = await this.CommentScheme.findAll({
             where: {
                 company_id:company_id,
-                for_company: for_company
             }
         })
         if (!comments) {
@@ -92,12 +80,10 @@ class CommentModel {
         return comments
     }
 
-    async getCommentsForProject(company_id,project_id, for_project) {
+    async getCommentsForProject(project_id, ) {
         const comments = await this.CommentScheme.findAll({
             where: {
-                company_id: company_id,
                 project_id: project_id,
-                for_project: for_project
             }
         })
         if (!comments) {
@@ -106,13 +92,10 @@ class CommentModel {
         return comments
     }
 
-    async getCommentsForApartment(company_id, project_id, apartment_id, for_apartment) {
+    async getCommentsForApartment( apartment_id, ) {
         const comments = await this.CommentScheme.findAll({
             where: {
-                company_id: company_id,
-                project_id: project_id,
                 apartment_id: apartment_id,
-                for_apartment: for_apartment
             }
         })
         if (!comments) {
@@ -123,9 +106,6 @@ class CommentModel {
     async createComment(
         project_id,
         apartment_id,
-        for_company,
-        for_project,
-        for_apartment,
         company_id,
         comment_data,
         username,
@@ -135,9 +115,6 @@ class CommentModel {
             project_id: project_id,
             apartment_id: apartment_id,
             company_id: company_id,
-            for_company: for_company,
-            for_project: for_project,
-            for_apartment: for_apartment,
             comment_data: comment_data,
             username: username,
             comment_id: comment_id,

@@ -6,7 +6,7 @@ import CompanyInterface from "../Interfaces/CompanyInterface"
 import { ApartmentInterface } from "../Interfaces/ApartmentInterface"
 import { RequestUserInterface } from "../Interfaces/RequestUserInterface"
 
-export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | string | undefined, apartmentId?: number | string | undefined): T | undefined=> {
+export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | string | undefined, apartmentId?: number | string | undefined,): T | undefined=> {
     const allProjects = useSelector((state : RootState) => state.projects.projects as ProjectInterface[])
     const allComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
     const allCompanies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
@@ -16,7 +16,7 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
     switch(type) {
         case 'comment-for-company':
             if (companyId) {
-                const commentsForCompany = allComments.filter((comments) => comments.companyId === companyId)
+                const commentsForCompany = allComments.filter((comments) => comments.companyId === companyId && comments.projectId === null && comments.apartmentId === null)
                 return commentsForCompany as T
             } else {
                 return undefined
@@ -30,14 +30,14 @@ export const useGetForCompany = <T> (type: string, companyId: string | undefined
             }
         case 'comment-for-project':
             if (projectId) {
-                const commentsForCompany = allComments.filter((comments) => comments.projectId === projectId)
+                const commentsForCompany = allComments.filter((comments) => comments.companyId === null && comments.projectId === projectId && comments.apartmentId === null)
                 return commentsForCompany as T
             } else {
                 return undefined
             }
         case 'comment-for-apartment':
             if (apartmentId) {
-                const commentsForApartment = allComments.filter((comments) => comments.apartmentId === apartmentId)
+                const commentsForApartment = allComments.filter((comments) => comments.companyId === null && comments.projectId === null && comments.apartmentId === apartmentId)
                 return commentsForApartment as T
             } else {
                 return undefined

@@ -7,6 +7,7 @@ import { addComment } from '../../../data/reducers/commentsReducer';
 import { v4 as uuidv4 } from 'uuid';
 import { UserInterface } from '../../../Interfaces/UserInterface';
 import { RootState } from '../../../data/reducers/store';
+import axios from 'axios';
 
 interface CommentListProps {
     value: string,
@@ -30,27 +31,25 @@ const CommentList: React.FC<CommentListProps> = React.memo(({
     projectId,
     apartmentId,
     theme,
-    forWho,
 }: CommentListProps) => {
 
     const dispatch = useDispatch()
     const commentId = uuidv4()
     const getUser = useSelector((state: RootState) => state.user.user as UserInterface[])
 
-    const handleAddComment = () => {
+    const handleAddComment = async () => {
+        const comment = await axios.post('http://localhost:3760/api/comment/', {
+            comment_id: commentId,
+            project_id: projectId ? projectId : null,
+            comment_data: value,
+            apartment_id: apartmentId ? apartmentId : null,
+            company_id: CompanyId ? CompanyId : null,
+            username: getUser[0].username!
+        })
         dispatch(addComment({
-            // data: value,
-            // user: 'Пользователь',
-            // companyId: CompanyId,
-            // id: commentId,
-            // projectId: projectId,
-            // apartmentId: apartmentId
             id: commentId,
             projectId: projectId,
             commentData: value,
-            forCompany: forWho === 'company' ? true : false,
-            forProject: forWho === 'project' ? true : false,
-            forApartment: forWho === 'apartment' ? true : false,
             apartmentId: apartmentId!,
             companyId: CompanyId!,
             username: getUser[0].username!
