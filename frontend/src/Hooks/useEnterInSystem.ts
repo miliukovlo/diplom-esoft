@@ -10,7 +10,6 @@ const useEnterInSystem = (userName: string, password: string, setError: React.Di
     const login = async () => {
         try {
             if (userName !== '' && password !== '') {
-                console.log(userName, password)
                 const getUser = await axios.get(`http://localhost:3760/api/users/${userName}`);
                 const userData = getUser.data
                 const decryptedPassword = JSON.parse(CryptoJS.AES.decrypt(userData.user_password, 'someSecretKey').toString(CryptoJS.enc.Utf8))

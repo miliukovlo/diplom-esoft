@@ -6,8 +6,8 @@ import { CommentInterface } from '../../../Interfaces/CommentInterface';
 
 interface CommentsBlockProps {
     CompanyId?: string,
-    ProjectId?: number,
-    ApartmentId?: number,
+    ProjectId?: number | string,
+    ApartmentId?: number | string,
     type: string,
     theme: string
 }

@@ -5,10 +5,12 @@ import CompanyInterface from '../../Interfaces/CompanyInterface';
 import CompanyBlock from '../Common/CompanyBlock/CompanyBlock';
 import './FavoriteContentStyle.css'
 import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
+import { UserInterface } from '../../Interfaces/UserInterface';
 
 const FavoriteContent: React.FC = () => {
     const favoriteCompanies = useSelector((state : RootState) => state.favorite.favoriteCompanies as CompanyInterface[])
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+    const getUser = useSelector((state : RootState) => state.user.user as UserInterface[])
 
     return (
         <main className={theme.theme === 'dark' ? 'main favorite-content dark-back' : 'main favorite-content light-back'}>
@@ -27,6 +29,7 @@ const FavoriteContent: React.FC = () => {
                                     specialization={company.specialization}
                                     key={company.id}
                                     theme={theme.theme}
+                                    username={getUser[0].username!}
                                 />
                             )
                         })

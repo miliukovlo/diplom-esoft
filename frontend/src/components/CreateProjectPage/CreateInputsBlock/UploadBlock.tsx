@@ -2,7 +2,7 @@
 import React from 'react';
 
 interface UploadBlockProps {
-    projectId: number,
+    projectId: number | string,
     type: 'project' | 'apartment',
     theme: string,
     handleImageChange: (event: React.ChangeEvent<HTMLInputElement>) => void

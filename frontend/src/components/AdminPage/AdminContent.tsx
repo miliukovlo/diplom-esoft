@@ -1,6 +1,7 @@
 import React from 'react';
 import './AdminContentStyle.css'
 import AdminInformation from './AdminInformation/AdminInformation';
+import CryptoJS from 'crypto-js';
 import { useInput } from '../../Hooks/useInput';
 import UserConfig from '../Common/UserConfig/UserConfig';
 import { UserPageInputInfoInterface } from '../../Interfaces/UserPageInputInfoInterface';

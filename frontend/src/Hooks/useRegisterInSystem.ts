@@ -3,7 +3,6 @@ import CryptoJS from "crypto-js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../data/reducers/userReducer";
-import { addCompany } from "../data/reducers/companyReducer";
 
 const useRegisterInSystem = (
     userName: string, 
@@ -35,11 +34,11 @@ const useRegisterInSystem = (
                     email !== '' &&
                     phone !== '' &&
                     companyId !== '' &&
-                    companyImage !== '' &&
                     companyName !== '' &&
                     companySlogan !== '' &&
                     companySpecialization !== '' 
                 ) {
+                    console.log('Создание')
                     const createCompany = await axios.post(`http://localhost:3760/api/company/`, {
                         company_id: companyId,
                         company_name: companyName,

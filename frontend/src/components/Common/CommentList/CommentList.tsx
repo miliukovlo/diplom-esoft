@@ -4,7 +4,8 @@ import Button from '../../UI/Button/Button';
 import CommentsBlock from '../../CompanyPage/CommentBlock/CommentsBlock';
 import { useDispatch } from 'react-redux';
 import { addComment } from '../../../data/reducers/commentsReducer';
-import { GetId } from '../../../Hooks/GetId';
+// import { GetId } from '../../../Hooks/GetId';
+import { v4 as uuidv4 } from 'uuid';
 
 interface CommentListProps {
     value: string,
@@ -12,8 +13,8 @@ interface CommentListProps {
     setValue: React.Dispatch<React.SetStateAction<string>>,
     CompanyId?: string,
     type: string,
-    projectId?: number,
-    apartmentId?: number,
+    projectId?: number | string,
+    apartmentId?: number | string,
     theme: string
 }
 
@@ -29,7 +30,7 @@ const CommentList: React.FC<CommentListProps> = React.memo(({
 }: CommentListProps) => {
 
     const dispatch = useDispatch()
-    const commentId = GetId('comment')
+    const commentId = uuidv4()
 
     const handleAddComment = () => {
         dispatch(addComment({

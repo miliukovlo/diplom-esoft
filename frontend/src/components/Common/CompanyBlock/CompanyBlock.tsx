@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import HeartBlock from '../HeartBlock/heartBlock';
 
 export interface CompanyBlockProps extends CompanyInterface {
-    theme: string
+    theme: string,
+    username: string
 }
 
 const CompanyBlock: React.FC<CompanyBlockProps> = React.memo(({
@@ -14,7 +15,8 @@ const CompanyBlock: React.FC<CompanyBlockProps> = React.memo(({
     logo,
     specialization,
     slogan,
-    theme
+    theme,
+    username
 }: CompanyBlockProps) => {
 
     const navigate = useNavigate()
@@ -37,6 +39,7 @@ const CompanyBlock: React.FC<CompanyBlockProps> = React.memo(({
                 slogan={slogan}
                 logo={logo}
                 specialization={specialization}
+                username={username}
             />
         </div>
     );

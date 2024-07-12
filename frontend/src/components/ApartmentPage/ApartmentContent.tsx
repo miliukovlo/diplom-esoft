@@ -5,9 +5,6 @@ import CommentList from '../Common/CommentList/CommentList';
 import { useTextarea } from '../../Hooks/useTextarea';
 import ApartmentImage from './ApartmentImage/ApartmentImage';
 import ApartmentInfo from './ApartmentInfo/ApartmentInfo';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../data/reducers/store';
-import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
 import ProjectRequest from '../ProjectPage/ProjectRequest/ProjectRequest';
 
 interface ApartmentContentProps extends ApartmentInterface {

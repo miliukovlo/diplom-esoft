@@ -5,22 +5,29 @@ import CompanyInterface from '../../../Interfaces/CompanyInterface';
 import { addFavoriteCompany, removeFavoriteCompany } from '../../../data/reducers/favoriteCompany';
 import './heartBlockStyle.css'
 import { ThemeReducerInterface } from '../../../Interfaces/ThemeReducerInterface';
+import axios from 'axios';
+
+interface HeartBlockInterface extends CompanyInterface {
+    username: string
+}
 
 
-const HeartBlock: React.FC<CompanyInterface> = React.memo(({
+const HeartBlock: React.FC<HeartBlockInterface> = React.memo(({
     id,
     name,
     logo,
     specialization,
     slogan,
-} : CompanyInterface) => {
+    username
+} : HeartBlockInterface) => {
     const favoriteCompanies: CompanyInterface[] = useSelector((state: RootState) => state.favorite.favoriteCompanies as CompanyInterface[])
     const isCompanyFavorite: boolean = favoriteCompanies.some((company: CompanyInterface) => company.id === id)
     const dispatch = useDispatch()
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
-    const handleAddToFavorite = useCallback((e: React.MouseEvent) => {
+    const handleAddToFavorite = useCallback(async (e: React.MouseEvent) => {
         e.stopPropagation()
+        console.log(isCompanyFavorite)
         if (!isCompanyFavorite) {
             const newCompany = {
                 name: name,
@@ -29,11 +36,27 @@ const HeartBlock: React.FC<CompanyInterface> = React.memo(({
                 slogan: slogan,
                 id: id
             }
+            let updatedFavoriteCompanyIds = [...favoriteCompanies.map(company => company.id), id];
+            try {
+                await axios.put(`http://localhost:3760/api/users/${username}`, {
+                    favorite_company: updatedFavoriteCompanyIds 
+                })
+            } catch (e) {
+                console.log(e)
+            }
             dispatch(addFavoriteCompany(newCompany))
         } else {
+            const updatedFavoriteCompanyIds = favoriteCompanies.filter(company => company.id !== id).map(company => company.id);
+            try {
+                await axios.put(`http://localhost:3760/api/users/${username}`, {
+                    favorite_company: updatedFavoriteCompanyIds 
+                })
+            } catch (e) {
+                console.log(e)
+            }
             dispatch(removeFavoriteCompany(id))
         }
-    }, [dispatch, id, isCompanyFavorite, name, specialization, slogan, logo])
+    }, [dispatch, id, isCompanyFavorite, favoriteCompanies, username, name, specialization, slogan, logo])
 
     return (
         <div className="heart-block">

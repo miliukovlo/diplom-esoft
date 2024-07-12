@@ -2,15 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Common/Header/Header';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Footer from '../components/Common/Footer/Footer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { addUser } from '../data/reducers/userReducer';
 import { changeTheme } from '../data/reducers/ThemeReducer';
 import { addCompany } from '../data/reducers/companyReducer';
+import { addFavoriteCompany } from '../data/reducers/favoriteCompany';
+import CompanyInterface from '../Interfaces/CompanyInterface';
+import { RootState } from '../data/reducers/store';
 
 const MainLayout : React.FC = () => {
 
     const [isLogin, setIsLogin] = useState<boolean | null>(false)
+    const companies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const effectRan = useRef(false)
@@ -41,6 +45,19 @@ const MainLayout : React.FC = () => {
                         theme: user.theme
                     }))
                     navigate('/main')
+                    const favorite_id = user.favorite_company
+                    favorite_id.forEach((companyId: string) => {
+                        const company = companies.find(company => company.id === companyId);
+                        if (company) {
+                            dispatch(addFavoriteCompany({
+                                id: company.id,
+                                name: company.name,
+                                logo: company.logo,
+                                slogan: company.slogan,
+                                specialization: company.specialization
+                            }));
+                        }
+                    });
                 }).catch(error => {
                     console.log(error)
                 })
@@ -52,6 +69,7 @@ const MainLayout : React.FC = () => {
                 for (const company of companiesList) {
                     try {
                         console.log(company)
+                        if (!companies.find(comp => comp.id === company.id)) {
                             dispatch(addCompany({
                                 id: company.company_id,
                                 name: company.company_name,
@@ -59,6 +77,7 @@ const MainLayout : React.FC = () => {
                                 slogan: company.slogan,
                                 specialization: company.specialization,
                             }));
+                        }
                     } catch (error) {
                         console.error(error);
                     }

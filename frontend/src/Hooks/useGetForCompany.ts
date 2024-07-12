@@ -6,7 +6,7 @@ import CompanyInterface from "../Interfaces/CompanyInterface"
 import { ApartmentInterface } from "../Interfaces/ApartmentInterface"
 import { RequestUserInterface } from "../Interfaces/RequestUserInterface"
 
-export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | undefined, apartmentId?: number | undefined): T | undefined=> {
+export const useGetForCompany = <T> (type: string, companyId: string | undefined, projectId?: number | string | undefined, apartmentId?: number | string | undefined): T | undefined=> {
     const allProjects = useSelector((state : RootState) => state.projects.projects as ProjectInterface[])
     const allComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
     const allCompanies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])

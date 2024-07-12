@@ -5,10 +5,12 @@ import CompanyInterface from '../../Interfaces/CompanyInterface';
 import { RootState } from '../../data/reducers/store';
 import CompanyBlock from '../Common/CompanyBlock/CompanyBlock';
 import { ThemeReducerInterface } from '../../Interfaces/ThemeReducerInterface';
+import { UserInterface } from '../../Interfaces/UserInterface';
 
 const MainContent: React.FC = () => {
     const companies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
+    const getUser = useSelector((state : RootState) => state.user.user as UserInterface[])
 
     useEffect(() => {
     }, [])
@@ -26,6 +28,7 @@ const MainContent: React.FC = () => {
                                 specialization={company.specialization}
                                 key={company.id}
                                 theme={theme.theme}
+                                username={getUser[0].username!}
                             />
                         )
                     })

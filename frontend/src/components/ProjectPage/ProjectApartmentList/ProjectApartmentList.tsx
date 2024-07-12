@@ -5,7 +5,7 @@ import ProjectApartmentBlock from '../ProjectApartmentBlock/ProjectApartmentBloc
 import './ProjectApartmentListStyle.css'
 
 interface ProjectApartmentListProps {
-    projectId: number,
+    projectId: string | number,
     companyId: string,
     theme: string
 }
