@@ -6,8 +6,8 @@ import { CommentInterface } from '../../../Interfaces/CommentInterface';
 
 interface CommentsBlockProps {
     CompanyId?: string,
-    ProjectId?: number | string,
-    ApartmentId?: number | string,
+    ProjectId?: string,
+    ApartmentId?: string,
     type: string,
     theme: string
 }
@@ -26,8 +26,8 @@ const CommentsBlock: React.FC<CommentsBlockProps> = React.memo(({CompanyId, Proj
                 comments.map(comment => {
                     return (
                         <Comment
-                            user={comment.user}
-                            data={comment.data}
+                            user={comment.username}
+                            data={comment.commentData}
                             key={comment.id}
                             theme={theme}
                         />

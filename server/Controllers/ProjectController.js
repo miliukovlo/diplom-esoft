@@ -10,7 +10,7 @@ class CompanyController {
     getAllProjects = async (req, res) => {
         try {
             const projects = await this.projectService.getAllProjects()
-            if (!projects || projects.length === 0) {
+            if (!projects) {
                 res.status(404).json({error: 'Проектов нет в системе!'})
                 return
             }

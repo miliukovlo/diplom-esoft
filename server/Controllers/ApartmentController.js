@@ -10,7 +10,7 @@ class ApartmentController {
     getAllApartments = async (req, res) => {
         try {
             const apartments = await this.apartmentService.getAllApartments()
-            if (!apartments || apartments.length === 0) {
+            if (!apartments) {
                 res.status(404).json({error: 'Проектов нет в системе!'})
                 return
             }

@@ -10,7 +10,7 @@ class UserController {
     getAllUsers = async (req, res) => {
         try {
             const users = await this.userService.getAllUsers()
-            if (!users || users.length === 0) {
+            if (!users) {
                 res.status(404).json({error: 'Пользователя нет в системе!'})
                 return
             }

@@ -10,7 +10,7 @@ class CompanyController {
     getAllCompanies = async (req, res) => {
         try {
             const companies = await this.companyService.getAllCompanies()
-            if (!companies || companies.length === 0) {
+            if (!companies) {
                 res.status(404).json({error: 'Компаний нет в системе!'})
                 return
             }
@@ -24,7 +24,7 @@ class CompanyController {
         try {
             const {company_id} = req.params
             const company = await this.companyService.getCompanyById(company_id)
-            if (!company || company.length === 0) {
+            if (!company) {
                 res.status(404).json({error: 'Компаний нет в системе!'})
                 return
             }

@@ -11,7 +11,7 @@ class RequestController {
         try {
             const {company_id} = req.params
             const requests = await this.requestsService.getRequestsForCompany(company_id)
-            if (!requests || requests.length === 0) {
+            if (!requests) {
                 res.status(404).json({error: 'Заявок к компании нет в системе!'})
                 return
             }

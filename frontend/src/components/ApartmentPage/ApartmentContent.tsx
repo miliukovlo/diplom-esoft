@@ -52,6 +52,7 @@ const ApartmentContent: React.FC<ApartmentContentProps> = React.memo(({
                 <ProjectRequest/>
                 <CommentList
                     type='apartment'
+                    forWho='apartment'
                     value={commentValue.value}
                     onChange={commentValue.onChange}
                     setValue={commentValue.setValue}

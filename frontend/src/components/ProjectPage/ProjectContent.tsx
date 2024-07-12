@@ -43,6 +43,7 @@ const ProjectContent: React.FC<ProjectContentProps> = React.memo(({
             />
             <CommentList
                 type={'project'}
+                forWho='project'
                 value={commentValue.value}
                 onChange={commentValue.onChange}
                 setValue={commentValue.setValue}

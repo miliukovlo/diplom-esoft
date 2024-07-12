@@ -1,8 +1,11 @@
 export interface CommentInterface {
-    user: string,
-    data: string,
-    companyId?: string,
-    projectId?: number | string,
-    apartmentId?: number | string,
-    id: number | string
+    id: string,
+    projectId?: string,
+    commentData: string,
+    forCompany: boolean,
+    forProject: boolean,
+    forApartment: boolean,
+    apartmentId?: string,
+    companyId: string,
+    username: string
 }

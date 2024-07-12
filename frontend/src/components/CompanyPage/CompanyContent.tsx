@@ -37,6 +37,7 @@ const CompanyContent: React.FC<CurrentCompanyInterface> = ({
                 forWho='user'
             />
             <CommentList
+                forWho='company'
                 value={commentValue.value}
                 onChange={commentValue.onChange}
                 setValue={commentValue.setValue}

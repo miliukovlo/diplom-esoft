@@ -14,6 +14,8 @@ import { addProject, clearProject } from '../data/reducers/ProjectsReducer';
 import { ProjectInterface } from '../Interfaces/ProjectInterface';
 import { ApartmentInterface } from '../Interfaces/ApartmentInterface';
 import { addApartment, clearApartment } from '../data/reducers/apartmentReducer';
+import { CommentInterface } from '../Interfaces/CommentInterface';
+import { addComment, clearComment } from '../data/reducers/commentsReducer';
 
 const MainLayout : React.FC = () => {
 
@@ -23,6 +25,7 @@ const MainLayout : React.FC = () => {
     const projects = useSelector((state : RootState) => state.projects.projects as ProjectInterface[])
     const apartments = useSelector((state : RootState) => state.apartments.apartments as ApartmentInterface[])
     const dispatch = useDispatch()
+    const getComments = useSelector((state : RootState) => state.comments.comments as CommentInterface[])
     const navigate = useNavigate()
     const effectRan = useRef(false)
 
@@ -151,6 +154,29 @@ const MainLayout : React.FC = () => {
                                 logo: company.logo,
                                 slogan: company.slogan,
                                 specialization: company.specialization
+                            }));
+                        }
+                    });
+                })
+                const comments = async () => {
+                    const getComments = await axios.get(`http://localhost:3760/api/comment/`)
+                    return getComments.data
+                }
+                comments().then(comment => {
+                    dispatch(clearComment())
+                    console.log(comment)
+                    comment.forEach((commentId: string) => {
+                        if (!getComments.some((comment) => comment.id === commentId)) {
+                            dispatch(addComment({
+                                id: comment.comment_id,
+                                projectId: comment.project_id,
+                                commentData: comment.comment_data,
+                                forCompany: comment.for_company,
+                                forProject: comment.for_project,
+                                forApartment: comment.for_apartment,
+                                apartmentId: comment.apartment_id,
+                                companyId: comment.company_id,
+                                username: comment.username
                             }));
                         }
                     });
