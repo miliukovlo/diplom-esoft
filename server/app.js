@@ -19,7 +19,10 @@ const ProjectService = require('./Service/ProjectService')
 const ApartmentModel = require('./Models/ApartmentModel')
 const ApartmentController = require('./Controllers/ApartmentController')
 const ApartmentService = require('./Service/ApartmentService')
-
+//Комментарии
+const CommentModel = require('./Models/CommentModel')
+const CommentController = require('./Controllers/CommentController')
+const CommentService = require('./Service/CommentService')
 
 //Пользователи
 const userService = new UserService(UserModel)
@@ -33,6 +36,9 @@ const projectController = new ProjectController(projectService)
 //Планировки
 const apartmentService = new ApartmentService(ApartmentModel)
 const apartmentController = new ApartmentController(apartmentService)
+// Комменатрии
+const commentService = new CommentService(CommentModel)
+const commentController = new CommentController(commentService)
 
 dotenv.config()
 
@@ -45,7 +51,8 @@ app.use('/api', router(
     userController, 
     companyController, 
     projectController,
-    apartmentController
+    apartmentController,
+    commentController
 ))   
 
 const start = async () => {
@@ -55,6 +62,7 @@ const start = async () => {
         await projectController.syncModel()
         await apartmentController.syncModel()
         await userController.syncModel()
+        await commentController.syncModel()
         app.listen(port, () => {
             console.log(`Сервер запущен на ${port} порту`)
         })
