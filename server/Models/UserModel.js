@@ -120,7 +120,8 @@ class UserModel {
         phone,
         image_url,
         password,
-        theme
+        theme,
+        favorite_company
     }
     ) {
         const user = await this.UserScheme.findOne({
@@ -135,6 +136,7 @@ class UserModel {
         user.image_url = image_url ? image_url : user.image_url
         user.password = password ? password : user.password
         user.theme = theme ? theme : user.theme
+        user.favorite_company = favorite_company ? favorite_company : user.favorite_company
 
         await user.save();
 

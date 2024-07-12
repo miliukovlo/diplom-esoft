@@ -8,7 +8,7 @@ class RequestsModel {
             'requests',
             {
                 project_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: true,
                     unique: false,
                     references: {
@@ -17,13 +17,13 @@ class RequestsModel {
                     }
                 },
                 request_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: false,
                     unique: true,
                     primaryKey: true
                 },
                 apartment_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: true,
                     references: {
                         model: 'apartments',

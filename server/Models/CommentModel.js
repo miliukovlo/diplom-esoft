@@ -8,7 +8,7 @@ class CommentModel {
             'comments',
             {
                 project_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: true,
                     unique: false,
                     references: {
@@ -21,7 +21,7 @@ class CommentModel {
                     allowNull: false,
                 },
                 comment_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: false,
                     unique: true,
                     primaryKey: true
@@ -39,7 +39,7 @@ class CommentModel {
                     allowNull: true,
                 },
                 apartment_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: true,
                     references: {
                         model: 'apartments',
@@ -65,6 +65,7 @@ class CommentModel {
             }
         )
     }
+    
 
     async syncModel() {
         return await this.CommentScheme.sync()

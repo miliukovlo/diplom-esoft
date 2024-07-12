@@ -39,7 +39,8 @@ class UserService {
                 is_admin,
                 company_id,
                 image_url,
-                password
+                password,
+                favorite_company
             } = body
                 const user = await this.userModel.createUser(
                     first_name,
@@ -50,7 +51,8 @@ class UserService {
                     is_admin,
                     company_id,
                     image_url,
-                    password
+                    password,
+                    favorite_company
                 )
                 return user
         } catch (e) {

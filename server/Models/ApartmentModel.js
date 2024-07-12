@@ -8,7 +8,7 @@ class ApartmentModel {
             'apartments',
             {
                 project_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: false,
                     unique: false,
                     references: {
@@ -21,7 +21,7 @@ class ApartmentModel {
                     allowNull: false,
                 },
                 apartment_id: {
-                    type: DataTypes.INTEGER,
+                    type: DataTypes.STRING,
                     allowNull: false,
                     unique: true,
                     primaryKey: true
