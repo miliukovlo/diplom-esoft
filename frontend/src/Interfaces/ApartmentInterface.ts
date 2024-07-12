@@ -12,4 +12,5 @@ export interface ApartmentInterface {
     poster: string,
     description: string,
     type: string,
+    watch: number
 }

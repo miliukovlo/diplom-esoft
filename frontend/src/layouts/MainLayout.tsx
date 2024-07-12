@@ -12,6 +12,8 @@ import CompanyInterface from '../Interfaces/CompanyInterface';
 import { RootState } from '../data/reducers/store';
 import { addProject, clearProject } from '../data/reducers/ProjectsReducer';
 import { ProjectInterface } from '../Interfaces/ProjectInterface';
+import { ApartmentInterface } from '../Interfaces/ApartmentInterface';
+import { addApartment, clearApartment } from '../data/reducers/apartmentReducer';
 
 const MainLayout : React.FC = () => {
 
@@ -19,6 +21,7 @@ const MainLayout : React.FC = () => {
     const companies = useSelector((state : RootState) => state.companies.companies as CompanyInterface[])
     const favoriteCompanies = useSelector((state : RootState) => state.favorite.favoriteCompanies as CompanyInterface[])
     const projects = useSelector((state : RootState) => state.projects.projects as ProjectInterface[])
+    const apartments = useSelector((state : RootState) => state.apartments.apartments as ApartmentInterface[])
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const effectRan = useRef(false)
@@ -93,6 +96,37 @@ const MainLayout : React.FC = () => {
                                     companyId: project.company_id,
                                     watch: project.watch,
                                     poster: undefined
+                                }));
+                            }
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    }
+                }) 
+                const getApartments = async () => {
+                    const getApartments = await axios.get(`http://localhost:3760/api/apartment/`)
+                    return getApartments.data
+                }
+                getApartments().then(async (apartmentList) => {
+                    dispatch(clearApartment())
+                    for (const apartment of apartmentList) {
+                        try {
+                            if (!apartments.find(apart => apart.id === apartment.id)) {
+                                dispatch(addApartment({
+                                    projectId: apartment.project_id,
+                                    id: apartment.apartment_id,
+                                    title: apartment.apartment_name,
+                                    square: apartment.square,
+                                    cost: apartment.apartment_cost,
+                                    rooms: apartment.rooms,
+                                    amount: apartment.amount,
+                                    haveBalcony: apartment.have_balcony,
+                                    isSale: apartment.is_sale,
+                                    companyId: apartment.company_id,
+                                    poster: "https://colodu.club/uploads/posts/2022-11/1667256273_15-colodu-club-p-interesnie-planirovki-domov-dizain-vkontak-16.jpg",
+                                    description: apartment.description,
+                                    type: apartment.apartment_type,
+                                    watch: apartment.watch
                                 }));
                             }
                         } catch (error) {

@@ -11,7 +11,7 @@ const ApartmentPage = React.memo(() => {
 
     const params = useParams()
 
-    const currentApartment: ApartmentInterface | undefined = useGetForCompany('apartment-by-id', params.companyId, Number(params.projectId), Number(params.apartmentId))
+    const currentApartment: ApartmentInterface | undefined = useGetForCompany('apartment-by-id', params.id, params.projectId, params.apartmentId)
 
     const theme = useSelector((state : RootState) => state.theme.theme as ThemeReducerInterface)
 
@@ -36,6 +36,7 @@ const ApartmentPage = React.memo(() => {
                 description={currentApartment.description} 
                 type={currentApartment.type} 
                 theme={theme.theme}
+                watch={currentApartment.watch}
             />
         </main>
     );
